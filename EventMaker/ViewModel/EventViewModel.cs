@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +20,25 @@ namespace EventMaker.ViewModel
         public RelayCommand DeleteEvent{ get; set; }
         public RelayCommand SelectEvent { get; set; }
 
+
+        private readonly EventCatalogSingleton _userSingleton;
+
+        public EventViewModel()
+        {
+
+            _userSingleton = EventCatalogSingleton.GetInstance();
+           
+
+        }
+
+
         private int _id;
         private string _description;
         private string _name;
         private string _place;
 
 
+        
         public int ID
         {
             get { return _id; }

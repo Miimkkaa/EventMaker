@@ -9,26 +9,62 @@ namespace EventMaker.Model
 {
     class EventCatalogSingleton
     {
-
-        //public EventCatalogSingleton 
+       
+        public EventCatalogSingleton _userSingleton;
         public ObservableCollection<Event> Events { get; set; }
 
+        private static EventCatalogSingleton Instance { get; set; }
 
-
+        public static Event _event;
+        //private readonly GetEvents _getCustomer;
+        public static EventCatalogSingleton GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new EventCatalogSingleton();
+            }
+            return Instance;
+        }
 
         public void Add(Event newEvent)
         {
-            
+            _event = newEvent;
         }
 
-        public void LoadEventAsync()
+        public async void LoadEventAsync()
         {
             
         }
 
         public void Remove(Event eventToBeRemoved)
         {
-            
+            _event = eventToBeRemoved;
         }
+
+        public string GetName()
+        {
+            return _event.Name;
+        }
+
+        public string GetType()
+        {
+            return _event.Type;
+        }
+
+        public string GetDescription()
+        {
+            return _event.Description;
+        }
+
+        public DateTime GetDateTime()
+        {
+            return _event.DateTime;
+        }
+
+        public string GetLocation()
+        {
+            return _event.Location;
+        }
+
     }
 }
