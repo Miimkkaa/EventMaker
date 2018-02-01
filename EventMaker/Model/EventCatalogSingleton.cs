@@ -14,7 +14,6 @@ namespace EventMaker.Model
         public readonly PersistancyService _getEvents;
         public EventCatalogSingleton _userSingleton;
         public ObservableCollection<Event> Events { get; set; }
-
         private static EventCatalogSingleton Instance { get; set; }
 
         public static Event _event;
@@ -38,7 +37,7 @@ namespace EventMaker.Model
         {
             _event = newEvent;
         }
-
+        //Exeption Handling
         public async void LoadEventAsync()
         {
             try
@@ -52,7 +51,7 @@ namespace EventMaker.Model
                 msd.ShowAsync();
             }
         }
-
+        //Methods
         public void Remove(Event eventToBeRemoved)
         {
             _event = eventToBeRemoved;

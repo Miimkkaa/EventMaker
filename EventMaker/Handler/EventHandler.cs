@@ -10,24 +10,20 @@ namespace EventMaker.Handler
 {
     class EventHandler
     {
-
         public void CommandInvokedHandler()
         {
             
         } 
-
 
        public void CreateEvent()
         {
             
         }
 
-
         public void DeleteEvent()
         {
             
         }
-
 
         public void SetSekectedEvent(Event ev)
         {

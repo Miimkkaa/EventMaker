@@ -25,20 +25,18 @@ namespace EventMaker.ViewModel
 
         public EventViewModel()
         {
-
+   
             _userSingleton = EventCatalogSingleton.GetInstance();
            
-
         }
-
-
+        //instance fields
         private int _id;
         private string _description;
         private string _name;
         private string _place;
 
 
-        
+        //Encapsulating properties
         public int ID
         {
             get { return _id; }
@@ -62,19 +60,6 @@ namespace EventMaker.ViewModel
             get { return _place; }
             set { _place = value; }
         }
-        
-
-
-        public EventViewModel(int id, string description, string name, string place)
-        {
-            _id = id;
-            _description = description;
-            _name = name;
-            _place = place;
-        }
-
-
-
-
+       
     }
 }
