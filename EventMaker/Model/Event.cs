@@ -20,16 +20,16 @@ namespace EventMaker.Model
         public DateTime DateTime { get; set; }
         public string Location { get; set; }
 
-        public Event( string name, string type, string description, string datetime, string location)
+        public Event( string name, string type, string description, DateTime datetime, string location)
         {
             _name = name;
             _type = type;
             _description = description;
-            _datetime = datetime;
+            _dateTime = datetime;
             _location = location;
         }
 
-        public override string Tostring()
+        public override string ToString()
         {
             return $"{Name} {Type} {Description} {DateTime} {Location}";
         }
