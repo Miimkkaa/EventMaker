@@ -9,8 +9,24 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.DataContext>
+        <!--<Grid.DataContext>
             <viewModel:EventViewModel/>
-        </Grid.DataContext>
+        </Grid.DataContext>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <ListView Grid.Row="1" Grid.Column="1"></ListView>
+        <Button Grid.Row="1" Grid.Column="2"/>
+        <Button Grid.Row="1" Grid.Column="2"/>
+        <Button Grid.Row="1" Grid.Column="2"/>
     </Grid>
 </Page>
