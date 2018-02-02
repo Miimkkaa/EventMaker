@@ -18,7 +18,7 @@ namespace EventMaker.ViewModel
         private string _name;
         private string _place;
         private readonly EventCatalogSingleton _userSingleton;
-
+        
         //props
         public DateTimeOffset Date { get; set; }
         public Event SelectedEvent { get; set; }
@@ -52,15 +52,13 @@ namespace EventMaker.ViewModel
             set { _place = value; }
         }
 
+        //ctor
         public EventViewModel()
         {
-
             _userSingleton = EventCatalogSingleton.GetInstance();
             DateTime dt = System.DateTime.Now;
             Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
             Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
         }
-
-
     }
 }
