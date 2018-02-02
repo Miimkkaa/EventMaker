@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace EventMaker.ViewModel
         private string _description;
         private string _name;
         private string _place;
+        private readonly EventCatalogSingleton _userSingleton;
 
         //props
         public DateTimeOffset Date { get; set; }
@@ -23,7 +25,7 @@ namespace EventMaker.ViewModel
         public EventCatalogSingleton SingletonEvent { get; set; }
         public TimeSpan Time { get; set; }
         public RelayCommand CreateEvent { get; set; }
-        public RelayCommand DeleteEvent{ get; set; }
+        public RelayCommand DeleteEvent { get; set; }
         public RelayCommand SelectEvent { get; set; }
         
         public int ID
@@ -50,14 +52,15 @@ namespace EventMaker.ViewModel
             set { _place = value; }
         }
 
-        public EventViewModel(int id, string description, string name, string place)
+        public EventViewModel()
         {
-            _id = id;
-            _description = description;
-            _name = name;
-            _place = place;
+
+            _userSingleton = EventCatalogSingleton.GetInstance();
+            DateTime dt = System.DateTime.Now;
+            Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
+            Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
         }
-        
+
 
     }
 }
