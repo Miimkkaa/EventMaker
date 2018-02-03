@@ -8,12 +8,12 @@ using EventMaker.Model;
 
 namespace EventMaker.NetLibrary
 {
-    class ObesrvableCollection
+    class ObesrvableCollectionClass
     {
         public  ObservableCollection<Event> Events { get; set; }
 
 
-        public ObesrvableCollection()
+        public ObesrvableCollectionClass()
         {
                 Events=new ObservableCollection<Event>()
                 {

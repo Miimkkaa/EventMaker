@@ -5,25 +5,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
+using EventMaker.Common;
+using EventMaker.NetLibrary;
 using EventMaker.Persistancy;
+using EventMaker.View;
 
 namespace EventMaker.Model
 {
     class EventCatalogSingleton
     {
-        public readonly PersistancyService _getEvents;
-        public EventCatalogSingleton _userSingleton;
+        //instance fields
+        private readonly PersistancyService _getEvents;
+        private static Event _event;
+        private FrameNAvigationClass _frameNAvigation;
+
+        //props
         public ObservableCollection<Event> Events { get; set; }
         private static EventCatalogSingleton Instance { get; set; }
 
-        public static Event _event;
 
         public EventCatalogSingleton()
         {
             _getEvents = new PersistancyService();
-
+            Events = new ObservableCollection<Event>()
+            {
+                new Event("Bullshit","haha","sadas",DateTime.Now, "Lala"),
+                new Event("name", "type", "des", DateTime.Now, "lo")
+            };
+            LoadEventAsync();
+            _frameNAvigation = new FrameNAvigationClass();
         }
-        //private readonly GetEvents _getCustomer;
+        
         public static EventCatalogSingleton GetInstance()
         {
             if (Instance == null)
@@ -33,16 +46,22 @@ namespace EventMaker.Model
             return Instance;
         }
 
-        public void Add(Event newEvent)
-        {
-            _event = newEvent;
-        }
         //Exeption Handling
         public async void LoadEventAsync()
         {
             try
             {
-                Events = await _getEvents.LoadFromJson();
+                try
+                {
+                    await _getEvents.LoadFromJson();
+                }
+                catch 
+                {
+                    if (_getEvents.EventsCatalog == null)
+                    {
+                        await _getEvents.SavetoJson(Events);
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -51,10 +70,21 @@ namespace EventMaker.Model
                 msd.ShowAsync();
             }
         }
+
         //Methods
-        public void Remove(Event eventToBeRemoved)
+        public async void Remove(Event eventToBeRemoved)
         {
             _event = eventToBeRemoved;
+            Events.Remove(eventToBeRemoved);
+            await _getEvents.SavetoJson(Events);
+        }
+
+        public async void Add(Event newEvent)
+        {
+            _event = newEvent;
+            Events.Add(newEvent);
+            //await _getEvents.SavetoJson(Events);
+            _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
         }
 
         public string GetName()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EventMaker.Model
 {
-    class Event
+    public class Event
     {
         //instance fields
         private string _name;
@@ -14,21 +14,29 @@ namespace EventMaker.Model
         private string _description;
         private DateTime _dateTime;
         private string _location;
+
         //properties
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-        public DateTime DateTime { get; set; }
-        public string Location { get; set; }
+        public string Name { get => _name; set => _name = value; }
+        public string Type { get => _type; set => _type = value; }
+        public string Description { get => _description; set => _description = value; }
+        public DateTime DateTime { get => _dateTime; set => _dateTime = value; }
+        public string Location { get => _location; set => _location = value; }
+
         //Event constructor
         public Event( string name, string type, string description, DateTime datetime, string location)
         {
-            _name = name;
-            _type = type;
-            _description = description;
-            _dateTime = datetime;
-            _location = location;
+            Name = name;
+            Type = type;
+            Description = description;
+            DateTime = datetime;
+            Location = location;
         }
+
+        public Event()
+        {
+            
+        }
+
         //Converting Tostring output information
         public override string ToString()
         {

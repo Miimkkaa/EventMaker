@@ -9,9 +9,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!--<Grid.DataContext>
+        <Grid.DataContext>
             <viewModel:EventViewModel/>
-        </Grid.DataContext>-->
+        </Grid.DataContext>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,18 +23,21 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <TextBlock Text="Name"/>
-        <TextBox PlaceholderText="Name"/>
-        <TextBlock Text="Type"/>
-        <TextBox PlaceholderText="Type"/>
-        <TextBlock Text="Description"/>
-        <TextBox PlaceholderText="description"/>
-        <TextBlock Text="Location"/>
-        <TextBox PlaceholderText="Location"/>
+        <StackPanel>
+            <TextBlock Text="Name"/>
+            <TextBox PlaceholderText="Name" Text="{Binding NewItem.Name, Mode=TwoWay}"/>
+            <TextBlock Text="Type"/>
+            <TextBox PlaceholderText="Type" Text="{Binding NewItem.ID, Mode=TwoWay}"/>
+            <TextBlock Text="Description"/>
+            <TextBox PlaceholderText="description" Text="{Binding NewItem.Description, Mode=TwoWay}"/>
+            <TextBlock Text="Location"/>
+            <TextBox PlaceholderText="Location" Text="{Binding NewItem.Place, Mode=TwoWay}"/>
+
+            <DatePicker></DatePicker>
+            <TimePicker></TimePicker>
+        </StackPanel>
         
-        <DatePicker></DatePicker>
-        <TimePicker></TimePicker>
         
-        <Button Grid.Row="1" Grid.Column="1"/>
+        <Button Grid.Row="1" Grid.Column="1" Command="{Binding CreateEvent, Mode=TwoWay}"/>
     </Grid>
 </Page>

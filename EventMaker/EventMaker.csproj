@@ -92,17 +92,18 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include=".NetLibrary\ObesrvableCollection.cs" />
+    <Compile Include="Common\FrameNAvigationClass.cs" />
+    <Compile Include="Library\ObesrvableCollectionClass.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\RelayArgComannd.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Convertor\DataTimeConvertor.cs" />
     <Compile Include="Handler\EventHandler.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\EventCatalogSingleton.cs" />
     <Compile Include="Persistancy\PersistancyService.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\EventViewModel.cs" />
     <Compile Include="View\CreateEventPage.xaml.cs">
