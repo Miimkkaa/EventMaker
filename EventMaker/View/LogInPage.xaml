@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="EventMaker.View.LogInPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EventMaker.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="30" BorderBrush="CadetBlue">
+            <TextBlock Text="Log in" FontSize="50" FontFamily="Modern Serif" HorizontalAlignment="Center"    />
+            <TextBlock Text="Username:" FontSize="30" FontFamily="Modern Serif"/>
+            <TextBox Margin="150,-30,30,0" Name="username" />
+            <TextBlock Text="Password:" FontSize="30" Margin="0,50,0,0" FontFamily="Modern Serif" />
+            <TextBox Margin="150,-30,30,0" Name="password" />
+            <Button Content="Log in" HorizontalAlignment="Center" Margin="0,30,0,0" Click="Button_Click"  />
+
+        </StackPanel>
+    </Grid>
+</Page>
