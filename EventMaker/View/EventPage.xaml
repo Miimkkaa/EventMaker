@@ -7,35 +7,42 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:EventMaker.ViewModel"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/1.jpg" Opacity="65"/>
+        </Grid.Background>
         <Grid.DataContext>
             <viewModel:EventViewModel/>
         </Grid.DataContext>
-        
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="500"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SingletonEvent.Events, Mode=TwoWay}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name, Mode=TwoWay}" />
+                        <TextBlock Text="{Binding Name, Mode=TwoWay}" TextWrapping="Wrap" Foreground="#FFFAF4F4" />
+                        <TextBlock Text="{Binding Type, Mode=TwoWay}" TextWrapping="Wrap" Foreground="#FFFAF4F4" />
+                        <TextBlock Text="{Binding Description, Mode=TwoWay}" TextWrapping="Wrap" Foreground="#FFFAF4F4"/>
+                        <TextBlock Text="{Binding DateTime, Mode=TwoWay}" TextWrapping="Wrap" Foreground="#FFFAF4F4" />
+                        <TextBlock Text="{Binding Location, Mode=TwoWay}" TextWrapping="Wrap" Foreground="#FFFAF4F4" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Click="CreateButton"/>
-        <Button Grid.Row="1" Grid.Column="2" Margin="50,0,0,0" Command="{Binding DeleteEvent}"/>
-        <Button Grid.Row="1" Grid.Column="2" Margin="100,0,0,0"/>
+        <Button Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Width="80" Height="30" Content="CREATE" FontFamily="Modern Serif" Click="CreateButton" Foreground="#FFFAF4F4" RequestedTheme="Light"/>
+        <Button Grid.Row="1" Grid.Column="2" Margin="0,100,0,0" Width="80" Height="30" Content="DELETE" FontFamily="Modern Serif" Command="{Binding DeleteEvent}" RenderTransformOrigin="-0.942,2.612" Foreground="#FFFAF4F4"/>
+        <Button Grid.Row="1" Grid.Column="2" Margin="0,200,0,0" Width="80" Height="30" Content="UPDATE" FontFamily="Modern Serif" RenderTransformOrigin="-0.355,0.596" Foreground="#FFFAF4F4"/>
+        <TextBlock Grid.Column="1" Height="90" Margin="10,20,380,0" Text="EVENTIME" TextAlignment="Center" Width="500" FontFamily="Modern Serif" FontSize="72" FontWeight="Bold" Grid.ColumnSpan="2" Foreground="#FFFAF4F4"/>
     </Grid>
 </Page>
