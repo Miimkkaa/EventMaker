@@ -92,17 +92,18 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include=".NetLibrary\ObesrvableCollection.cs" />
+    <Compile Include="Common\FrameNAvigationClass.cs" />
+    <Compile Include="Library\ObesrvableCollectionClass.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\RelayArgComannd.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Convertor\DataTimeConvertor.cs" />
     <Compile Include="Handler\EventHandler.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\EventCatalogSingleton.cs" />
     <Compile Include="Persistancy\PersistancyService.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\EventViewModel.cs" />
     <Compile Include="View\CreateEventPage.xaml.cs">
@@ -110,9 +111,6 @@
     </Compile>
     <Compile Include="View\EventPage.xaml.cs">
       <DependentUpon>EventPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\LogInPage.xaml.cs">
-      <DependentUpon>LogInPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +120,9 @@
     <None Include="EventMaker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\thailand-4500x3550-4k-5k-wallpaper-beach-palms-shore-sunset-travel-6484.jpg" />
+    <Content Include="Assets\1.jpg" />
+    <Content Include="Assets\13.jpg" />
+    <Content Include="Assets\mm.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -150,10 +150,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EventPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\LogInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
