@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.Pwm;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using EventMaker.Common;
@@ -23,7 +24,8 @@ namespace EventMaker.Model
         //props
         public ObservableCollection<Event> Events { get; set; }
         private static EventCatalogSingleton Instance { get; set; }
-
+        //public TimeSpan Time { get; set; }
+        //public DateTimeOffset Date { get; set; }
 
         public EventCatalogSingleton()
         {
@@ -31,12 +33,16 @@ namespace EventMaker.Model
             Events = new ObservableCollection<Event>()
             {
                 new Event("Bullshit","haha","sadas",DateTime.Now, "Lala"),
-                new Event("name", "type", "des", DateTime.Now, "lo")
+                new Event("name", "type", "des", DateTime.Parse("2017.09.08 12:00") , "lo")
             };
             LoadEventAsync();
             _frameNAvigation = new FrameNAvigationClass();
+            //DateTime dt = System.DateTime.Now;
+            //Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
+            //Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
+
         }
-        
+
         public static EventCatalogSingleton GetInstance()
         {
             if (Instance == null)
@@ -76,14 +82,14 @@ namespace EventMaker.Model
         {
             _event = eventToBeRemoved;
             Events.Remove(eventToBeRemoved);
-            await _getEvents.SavetoJson(Events);
+            //await _getEvents.SavetoJson(Events);
         }
 
         public async void Add(Event newEvent)
         {
             _event = newEvent;
             Events.Add(newEvent);
-            //await _getEvents.SavetoJson(Events);
+            await _getEvents.SavetoJson(Events);
             _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
         }
 
