@@ -7,8 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-<Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/thailand-4500x3550-4k-5k-wallpaper-beach-palms-shore-sunset-travel-6484.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="400"/>
@@ -18,11 +21,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="200" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="30" BorderBrush="CadetBlue">
-            <TextBlock Text="Log in" FontSize="50" FontFamily="Modern Serif" HorizontalAlignment="Center"    />
-            <TextBlock Text="Username:" FontSize="30" FontFamily="Modern Serif"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="0" BorderBrush="BlueViolet">
+            <TextBlock Text="Log in" FontSize="50" Foreground="AliceBlue"  IsColorFontEnabled="True" SelectionHighlightColor="white" TextLineBounds="Full" FontFamily="Modern Serif" HorizontalAlignment="Center"    />
+            <TextBlock Text="Username:" FontSize="30" Foreground="AliceBlue" FontFamily="Modern Serif"/>
             <TextBox Margin="150,-30,30,0" Name="username" />
-            <TextBlock Text="Password:" FontSize="30" Margin="0,50,0,0" FontFamily="Modern Serif" />
+            <TextBlock Text="Password:" FontSize="30" Margin="0,50,0,0" Foreground="AliceBlue"  FontFamily="Modern Serif" />
             <TextBox Margin="150,-30,30,0" Name="password" />
             <Button Content="Log in" HorizontalAlignment="Center" Margin="0,30,0,0" Click="Button_Click"  />
 
