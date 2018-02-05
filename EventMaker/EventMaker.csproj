@@ -119,6 +119,9 @@
     <None Include="EventMaker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\2.jpg" />
+    <Content Include="Assets\bisketjatra.jpg" />
+    <Content Include="Assets\World-Pride-Parade-2014-Toronto-6.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

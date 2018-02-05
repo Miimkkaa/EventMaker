@@ -8,33 +8,35 @@
     xmlns:viewModel="using:EventMaker.ViewModel"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="0,10,0,-10" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="188*"/>
+        </Grid.ColumnDefinitions>
+
         <!--<Grid.DataContext>
             <viewModel:EventViewModel/>
         </Grid.DataContext>-->
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/2.jpg" Opacity="65"/>
+        </Grid.Background>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="116,8,0,0" TextWrapping="Wrap" Text="Create New Event"  FontSize="30" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="54" Width="331" SelectionChanged="textBlockID_SelectionChanged" Grid.Column="2"/>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <TextBlock Text="Name"/>
-        <TextBox PlaceholderText="Name"/>
-        <TextBlock Text="Type"/>
-        <TextBox PlaceholderText="Type"/>
-        <TextBlock Text="Description"/>
-        <TextBox PlaceholderText="description"/>
-        <TextBlock Text="Location"/>
-        <TextBox PlaceholderText="Location"/>
-        
-        <DatePicker></DatePicker>
-        <TimePicker></TimePicker>
-        
-        <Button Grid.Row="1" Grid.Column="1"/>
+        <TextBlock x:Name="textBlockID1" HorizontalAlignment="Left" Margin="4,76,0,0" TextWrapping="Wrap" Text="Name" Foreground="White" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="textBoxID7" HorizontalAlignment="Left" Margin="24,74,0,0" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Top" Height="33" Width="182" PlaceholderText="Name" Grid.Column="2" TextChanged="textBoxID7_TextChanged" />
+        <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="6,139,0,0" TextWrapping="Wrap" Text="Type" Foreground="White" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="24,139,0,0" TextWrapping="Wrap"
+			VerticalAlignment="Top" Width="182" Foreground="White" PlaceholderText="Type" Grid.Column="2"/>
+        <TextBlock x:Name="textBlockDescription" HorizontalAlignment="Left" Margin="6,218,0,0" TextWrapping="Wrap" Foreground="White" Text="Description" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="textBoxDescription" HorizontalAlignment="Left" Margin="28,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="182" PlaceholderText="Description" TextChanged="textBoxDescription_TextChanged" Grid.Column="2"/>
+        <TextBlock x:Name="textBlockPlace" HorizontalAlignment="Left" Margin="0,286,0,0" TextWrapping="Wrap"  Foreground="White" Text="Place" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="textBoxPlace" HorizontalAlignment="Left" Margin="28,290,0,0" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Top" Width="182" PlaceholderText="Place" Grid.Column="2" />
+        <TextBlock x:Name="textBlockDate" HorizontalAlignment="Left" Margin="2,364,0,0" TextWrapping="Wrap" Foreground="White" Text="Date" VerticalAlignment="Top" Grid.Column="1"/>
+        <DatePicker HorizontalAlignment="Left" Margin="26,358,0,0"  Foreground="White" VerticalAlignment="Top" Grid.Column="2"/>
+        <TextBlock x:Name="textBlockTime" HorizontalAlignment="Left" Margin="0,439,0,0" Foreground="White" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Grid.Column="1"/>
+        <TimePicker HorizontalAlignment="Left" Margin="26,431,0,0" VerticalAlignment="Top" Foreground="White" Width="296" Grid.Column="2"/>
+        <Button x:Name="buttonCreate" Content="Create Event" HorizontalAlignment="Left" Margin="33,500,0,0" Foreground="White" VerticalAlignment="Top" Grid.Column="2"/>
+        <!--<Button x:Name="buttonListEvent" Content="List Events" HorizontalAlignment="Left" Margin="600,500,0,0" VerticalAlignment="Top" Click="buttonListEvent_Click"/>-->
     </Grid>
 </Page>
