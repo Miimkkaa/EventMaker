@@ -32,8 +32,16 @@ namespace EventMaker.Model
             _getEvents = new PersistancyService();
             Events = new ObservableCollection<Event>()
             {
-                new Event("Bullshit","haha","sadas",DateTime.Now, "Lala"),
-                new Event("name", "type", "des", DateTime.Parse("2017.09.08 12:00") , "lo")
+                new Event("Eminem","Concert","For people of all ages who want to have a great\ntime and experience unforgettable moment with their friends and enjoy Eminem’s music.", DateTime.Parse("2018.07.04 12:00"), "Roskilde, Denmark (Roskilde festival)"),
+                new Event("Made in Space", "Social event", "Do you want to see the planets from a different point of view and meet people with the same interest in the immense Space as you? Come at the Planetarium and Copenhagen and learn more about what surrounds us.", DateTime.Now, "Copenhagen, Denmark (Planetarium),"),
+                new Event("Cooking with Gordon Ramsay", "Food", "This event is for all the people who want to meet one of the best chef’s in the world and learn a few cooking tricks from the master himself.", DateTime.Now, "Copenhagen, Denmark (Gordon Ramsay’s restaurant)"),
+                new Event("Chocolate festival", "Social event", "For all chocolate lovers out there who want to spend a day full of deliciousness without regrets in the company of the finest chocolate from around the world.", DateTime.Now, "Copenhagen, Denmark (Tivoli gardens)"),
+                new Event("The hidden place exhibition", "Art", "If you are captivated by modern art and breathtaking pieces, this is the event for you. Join us and support Aline Verganos for her first solo exhibition.”", DateTime.Now, "Copenhagen, Denmark (Limited works),"),
+                new Event("Workshop", "Social event", "Do you want to meet new people and learn some interesting crafts? Meet us at the Culture center in Roskilde and have fun.", DateTime.Now, "Roskilde, Denmark (Culture center)"),
+                new Event("Paint bar", "Social event", "If you are both alcohol and art lover, you will love everything about this event. Come have a drink while you are showing us your hidden talents. Looking forward to meet you there.", DateTime.Now, "Copenhagen, Denmark (Café Vivaldi)"),
+                new Event("Salsa dance class", "Dance", "If you want to learn to move like a goddess and feel the heat of Cuba going through your veins, this is the dance class for you.", DateTime.Now, "Copenhagen, Denmark (Salsa club)"),
+                new Event("Picture this", "Photography", "If you are interested in photography or you want to enjoy other people’s perspective of the world in pictures, you can visit us at KADK and get inspired for free.", DateTime.Now, "Copenhagen, Denmark (KADK)"),
+                new Event("Gaming", "Games", "For all the gamers out there who want to share strategies and tricks for their favorite games, this is the place where you can meet your fellow gamer friends.", DateTime.Now, "Roskilde, Denmark (Culture center)"),
             };
             LoadEventAsync();
             _frameNAvigation = new FrameNAvigationClass();
@@ -89,7 +97,7 @@ namespace EventMaker.Model
         {
             _event = newEvent;
             Events.Add(newEvent);
-            await _getEvents.SavetoJson(Events);
+            //await _getEvents.SavetoJson(Events);
             _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
         }
 
