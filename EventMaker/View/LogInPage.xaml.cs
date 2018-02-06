@@ -27,7 +27,7 @@ namespace EventMaker.View
         {
             this.InitializeComponent();
         }
-
+        //Logic for login
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (username.Text == "Ben" && password.Text == "123")
@@ -36,8 +36,9 @@ namespace EventMaker.View
             }
             else
             {
-                MessageDialog msd = new MessageDialog("Wrong username or password!");
-                await msd.ShowAsync();
+                MessageDialog msg=new MessageDialog("Wrong username or password,please try again.");
+                await msg.ShowAsync();
+                
             }
         }
     }

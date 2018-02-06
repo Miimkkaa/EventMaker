@@ -112,6 +112,9 @@
     <Compile Include="View\EventPage.xaml.cs">
       <DependentUpon>EventPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\LogInPage.xaml.cs">
+      <DependentUpon>LogInPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -126,6 +129,7 @@
     <Content Include="Assets\World-Pride-Parade-2014-Toronto-6.jpg" />
     <Content Include="Assets\13.jpg" />
     <Content Include="Assets\mm.png" />
+    <Content Include="Assets\thailand-4500x3550-4k-5k-wallpaper-beach-palms-shore-sunset-travel-6484.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -153,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LogInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

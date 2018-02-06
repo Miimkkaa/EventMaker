@@ -12,23 +12,22 @@
             <ImageBrush ImageSource="ms-appx:///Assets/thailand-4500x3550-4k-5k-wallpaper-beach-palms-shore-sunset-travel-6484.jpg"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="200" />
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="0" BorderBrush="BlueViolet">
-            <TextBlock Text="Log in" FontSize="50" Foreground="AliceBlue"  IsColorFontEnabled="True" SelectionHighlightColor="white" TextLineBounds="Full" FontFamily="Modern Serif" HorizontalAlignment="Center"    />
-            <TextBlock Text="Username:" FontSize="30" Foreground="AliceBlue" FontFamily="Modern Serif"/>
-            <TextBox Margin="150,-30,30,0" Name="username" />
-            <TextBlock Text="Password:" FontSize="30" Margin="0,50,0,0" Foreground="AliceBlue"  FontFamily="Modern Serif" />
-            <TextBox Margin="150,-30,30,0" Name="password" />
-            <Button Content="Log in" HorizontalAlignment="Center" Margin="0,30,0,0" Click="Button_Click"  />
-
+        <StackPanel Grid.Column="1" Grid.Row="1" BorderThickness="10" BorderBrush="AliceBlue">
+            <TextBlock  Margin="0,30,0,0"  TextLineBounds="Full" Text="Log in" HorizontalAlignment="Center" FontSize="50" IsColorFontEnabled="True" Foreground="AliceBlue"      />
+            <TextBlock  Margin="0,20,0,0"  Text="Username:" Foreground="AliceBlue" FontSize="30"    />
+            <TextBox    Margin="150,-30,50,0" Name="username"/>
+            <TextBlock  Margin="0,10,0,0" Text="Password:" FontSize="30" Foreground="AliceBlue"/>
+            <TextBox    Margin="150,-30,50,0" Name="password"/>
+            <Button   Content="Log in" HorizontalAlignment="Center" Margin="0,30,0,0" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Page>
