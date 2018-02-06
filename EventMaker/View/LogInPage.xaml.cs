@@ -27,7 +27,7 @@ namespace EventMaker.View
         {
             this.InitializeComponent();
         }
-
+        //Logic for login
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (username.Text == "Ben" && password.Text == "123")
