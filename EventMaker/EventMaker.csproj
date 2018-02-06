@@ -119,6 +119,7 @@
     <None Include="EventMaker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\1.jpg" />
     <Content Include="Assets\2.jpg" />
     <Content Include="Assets\bisketjatra.jpg" />
     <Content Include="Assets\World-Pride-Parade-2014-Toronto-6.jpg" />
