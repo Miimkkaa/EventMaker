@@ -27,10 +27,12 @@ namespace EventMaker.ViewModel
         private string _place;
         public EventCatalogSingleton _userSingleton;
         private EventHandlerClass _eventHandler;
+        private DateTimeOffset _date;
+        private TimeSpan _time;
 
         //props
-        public DateTimeOffset Date { get; set; }
-        public TimeSpan Time { get; set; }
+        //public DateTimeOffset Date { get; set; }
+        //public TimeSpan Time { get; set; }
 
         public Event SelectedEvent { get; set; }
         public Event NewItem { get; set; }
@@ -84,13 +86,22 @@ namespace EventMaker.ViewModel
             }
         }
 
+        public DateTimeOffset Date1 { get => _date; set { _date = value; OnPropertyChanged(nameof(Date1)); } }
+
+        public TimeSpan Time1
+        {
+            get => _time;
+            set { _time = value; OnPropertyChanged(nameof(Time1));
+        }
+    }
+
         //ctor
         public EventViewModel()
         {
             _userSingleton = EventCatalogSingleton.GetInstance();
-            //DateTime dt = System.DateTime.Now;
-            //Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
-            //Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
+            DateTime dt = System.DateTime.Now;
+            _date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
+            _time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
 
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
@@ -103,7 +114,7 @@ namespace EventMaker.ViewModel
 
         public void DoAdd()
         {
-            DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Date, Time);
+            DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Date1, Time1);
             NewItem = new Event(NewItem.Name, NewItem.Type, NewItem.Description, date, NewItem.Location);
 
             _eventHandler.CreateEvent(NewItem);

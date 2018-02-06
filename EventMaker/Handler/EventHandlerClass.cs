@@ -22,6 +22,7 @@ namespace EventMaker.Handler
         private FrameNAvigationClass _frameNAvigation;
         private EventCatalogSingleton _catalog;
         private EventViewModel _evm;
+        private DataTimeConvertor _conv;
 
         //props
 
@@ -31,23 +32,29 @@ namespace EventMaker.Handler
             NewItem = new Event();
             _frameNAvigation = new FrameNAvigationClass();
             _catalog = EventCatalogSingleton.GetInstance();
+            _conv = new DataTimeConvertor();
             
             //_evm = new EventViewModel();
         }
 
         //public void CommandInvokedHandler()
         //{
-            
+
         //} 
 
-       public async void CreateEvent(Event forAdding)
+        public static DateTime DateTimeOffsetAndTimeSetToDateTime(DateTimeOffset date, TimeSpan time)
+        {
+            return new DateTime(date.Year, date.Month, date.Day, time.Hours, time.Minutes, 0);
+        }
+
+        public async void CreateEvent(Event forAdding)
        {
             //here i put your stuff to not forget the way you did this:
-           //DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(_evm.Date, _evm.Time);
+            //DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(_evm.Date, _evm.Time);
             //
-
+            //DateTimeOffsetAndTimeSetToDateTime()
             _catalog.Events.Add(forAdding);
-            //await _getEvents.SavetoJson(_catalog.Events);
+            await _getEvents.SavetoJson(_catalog.Events);
             _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
         }
 

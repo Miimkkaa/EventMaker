@@ -12,5 +12,7 @@ namespace EventMaker.Convertor
         {
             return new DateTime(date.Year, date.Month, date.Day, time.Hours, time.Minutes, 0);
         }
+
+       
     }
 }
