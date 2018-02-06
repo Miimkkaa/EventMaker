@@ -24,8 +24,6 @@ namespace EventMaker.Model
         //props
         public ObservableCollection<Event> Events { get; set; }
         private static EventCatalogSingleton Instance { get; set; }
-        //public TimeSpan Time { get; set; }
-        //public DateTimeOffset Date { get; set; }
 
         public EventCatalogSingleton()
         {
@@ -45,10 +43,6 @@ namespace EventMaker.Model
             };
             LoadEventAsync();
             _frameNAvigation = new FrameNAvigationClass();
-            //DateTime dt = System.DateTime.Now;
-            //Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
-            //Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
-
         }
 
         public static EventCatalogSingleton GetInstance()
@@ -86,20 +80,21 @@ namespace EventMaker.Model
         }
 
         //Methods
-        public async void Remove(Event eventToBeRemoved)
-        {
-            _event = eventToBeRemoved;
-            Events.Remove(eventToBeRemoved);
-            //await _getEvents.SavetoJson(Events);
-        }
 
-        public async void Add(Event newEvent)
-        {
-            _event = newEvent;
-            Events.Add(newEvent);
-            //await _getEvents.SavetoJson(Events);
-            _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
-        }
+        //public async void Remove(Event eventToBeRemoved)
+        //{
+        //    _event = eventToBeRemoved;
+        //    Events.Remove(eventToBeRemoved);
+        //    //await _getEvents.SavetoJson(Events);
+        //}
+
+        //public async void Add(Event newEvent)
+        //{
+        //    _event = newEvent;
+        //    Events.Add(newEvent);
+        //    //await _getEvents.SavetoJson(Events);
+        //    _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
+        //}
 
         public string GetName()
         {
@@ -118,7 +113,7 @@ namespace EventMaker.Model
 
         public DateTime GetDateTime()
         {
-            return _event.DateTime;
+            return _event.DateTime.Date + _event.DateTime.TimeOfDay;
         }
 
         public string GetLocation()

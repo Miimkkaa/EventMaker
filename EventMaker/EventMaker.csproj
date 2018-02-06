@@ -99,7 +99,7 @@
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Convertor\DataTimeConvertor.cs" />
-    <Compile Include="Handler\EventHandler.cs" />
+    <Compile Include="Handler\EventHandlerClass.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\EventCatalogSingleton.cs" />
     <Compile Include="Persistancy\PersistancyService.cs" />
@@ -121,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\1.jpg" />
+    <Content Include="Assets\2.jpg" />
+    <Content Include="Assets\bisketjatra.jpg" />
+    <Content Include="Assets\World-Pride-Parade-2014-Toronto-6.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
