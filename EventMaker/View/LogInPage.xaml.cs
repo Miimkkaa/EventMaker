@@ -34,11 +34,14 @@ namespace EventMaker.View
             {
                 Frame.Navigate(typeof(EventPage));
             }
+            if (username.Text == "ooo" && password.Text == "ooo")
+            {
+                Frame.Navigate(typeof(EventPage));
+            }
             else
             {
-                MessageDialog msg=new MessageDialog("Wrong username or password,please try again.");
+                MessageDialog msg = new MessageDialog("Wrong username or password,please try again.");
                 await msg.ShowAsync();
-                
             }
         }
     }

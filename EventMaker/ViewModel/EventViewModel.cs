@@ -108,16 +108,16 @@ namespace EventMaker.ViewModel
             //SelectEvent = new RelayCommand(DoSelect);
             UpDateEvent = new RelayCommand(DoUpdate);
 
-           _eventHandler = new EventHandlerClass();
+           _eventHandler = new EventHandlerClass(this);
             NewItem = new Event();
         }
 
         public void DoAdd()
         {
-            DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Date1, Time1);
-            NewItem = new Event(NewItem.Name, NewItem.Type, NewItem.Description, date, NewItem.Location);
+            //DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Date1, Time1);
+            //NewItem = new Event(NewItem.Name, NewItem.Type, NewItem.Description, date, NewItem.Location);
 
-            _eventHandler.CreateEvent(NewItem);
+            _eventHandler.CreateEvent();
             //_userSingleton.Add(NewItem);
         }
 
