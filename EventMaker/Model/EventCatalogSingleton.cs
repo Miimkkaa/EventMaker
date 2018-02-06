@@ -73,23 +73,6 @@ namespace EventMaker.Model
             }
         }
 
-        //Methods
-
-        //public async void Remove(Event eventToBeRemoved)
-        //{
-        //    _event = eventToBeRemoved;
-        //    Events.Remove(eventToBeRemoved);
-        //    //await _getEvents.SavetoJson(Events);
-        //}
-
-        //public async void Add(Event newEvent)
-        //{
-        //    _event = newEvent;
-        //    Events.Add(newEvent);
-        //    //await _getEvents.SavetoJson(Events);
-        //    _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
-        //}
-
         public string GetName()
         {
             return _event.Name;

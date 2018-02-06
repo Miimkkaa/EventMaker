@@ -18,32 +18,27 @@ namespace EventMaker.Handler
     {
         //instance fields
         private readonly PersistancyService _getEvents;
-        private static Event NewItem;
         private FrameNAvigationClass _frameNAvigation;
         private EventCatalogSingleton _catalog;
         private EventViewModel Evm { get; }
-        private DataTimeConvertor _conv;
 
         //props
 
         public EventHandlerClass(EventViewModel evm)
         {
             _getEvents = new PersistancyService();
-            NewItem = new Event();
             _frameNAvigation = new FrameNAvigationClass();
             _catalog = EventCatalogSingleton.GetInstance();
-            _conv = new DataTimeConvertor();
-
             Evm = evm;
         }
         
         public async void CreateEvent()
-       {
+        {
            try
            {
                DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Evm.Date1, Evm.Time1);
 
-                _catalog.Events.Add(new Event(Evm.ID, Evm.Name, Evm.Description, date, Evm.Place));
+                _catalog.Events.Add(new Event(Evm.NewItem.Name, Evm.NewItem.Type, Evm.NewItem.Description, date, Evm.NewItem.Location));
                await _getEvents.SavetoJson(_catalog.Events);
                _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
             }

@@ -38,9 +38,9 @@
             <TextBox x:Name="textBoxPlace" Text="{Binding NewItem.Location, Mode=TwoWay}" HorizontalAlignment="Left" Margin="28,290,0,0" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Top" Width="182" PlaceholderText="PLACE" Grid.Column="2" />
         <TextBlock x:Name="textBlockDate" HorizontalAlignment="Left" Margin="2,364,0,0" TextWrapping="Wrap" Foreground="White" Text="DATE" FontFamily="Modern serif" VerticalAlignment="Top" Grid.Column="1"/>
 
-        <DatePicker HorizontalAlignment="Left" Margin="26,358,0,0" Foreground="White" VerticalAlignment="Top" Grid.Column="2"/>
+        <DatePicker Date="{Binding Date1, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="26,358,0,0" Foreground="White" VerticalAlignment="Top" Grid.Column="2"/>
         <TextBlock x:Name="textBlockTime" HorizontalAlignment="Left" Margin="0,439,0,0" Foreground="White" TextWrapping="Wrap" Text="TIME" FontFamily="Modern serif" VerticalAlignment="Top" Grid.Column="1"/>
-        <TimePicker HorizontalAlignment="Left" Margin="26,431,0,0" VerticalAlignment="Top" Foreground="White" Width="296" Grid.Column="2"/>
+        <TimePicker Time="{Binding Time1, Mode=TwoWay}" HorizontalAlignment="Left" Margin="26,431,0,0" VerticalAlignment="Top" Foreground="White" Width="296" Grid.Column="2"/>
 
             <Button x:Name="buttonCreate" Command="{Binding CreateEvent, Mode=TwoWay}" Content="CREATE EVENT" HorizontalAlignment="Left" Margin="33,500,0,0" Foreground="White" VerticalAlignment="Top" FontFamily="Modern serif" Grid.Column="2"/>
 

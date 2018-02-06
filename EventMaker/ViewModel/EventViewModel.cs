@@ -31,9 +31,6 @@ namespace EventMaker.ViewModel
         private TimeSpan _time;
 
         //props
-        //public DateTimeOffset Date { get; set; }
-        //public TimeSpan Time { get; set; }
-
         public Event SelectedEvent { get; set; }
         public Event NewItem { get; set; }
 
@@ -105,7 +102,6 @@ namespace EventMaker.ViewModel
 
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
-            //SelectEvent = new RelayCommand(DoSelect);
             UpDateEvent = new RelayCommand(DoUpdate);
 
            _eventHandler = new EventHandlerClass(this);
@@ -114,25 +110,13 @@ namespace EventMaker.ViewModel
 
         public void DoAdd()
         {
-            //DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Date1, Time1);
-            //NewItem = new Event(NewItem.Name, NewItem.Type, NewItem.Description, date, NewItem.Location);
-
             _eventHandler.CreateEvent();
-            //_userSingleton.Add(NewItem);
         }
 
         public void DoRemove()
         {
-            //_userSingleton.Remove(SelectedEvent);
-            //_eventHandler.SetSelectedEvent(SelectedEvent);
             _eventHandler.DeleteEvent(SelectedEvent);
-
         }
-
-        //public void DoSelect()
-        //{
-        //    _eventHandler.SetSelectedEvent(SelectedEvent);
-        //}
 
         public void DoUpdate()
         {
