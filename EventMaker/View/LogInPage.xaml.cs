@@ -36,8 +36,9 @@ namespace EventMaker.View
             }
             else
             {
-                MessageDialog msd = new MessageDialog("Wrong username or password!");
-                await msd.ShowAsync();
+                MessageDialog msg=new MessageDialog("Wrong username or password,please try again.");
+                await msg.ShowAsync();
+                
             }
         }
     }
