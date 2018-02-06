@@ -34,7 +34,7 @@ namespace EventMaker.View
             coreTitleBar.ExtendViewIntoTitleBar = true;
         }
 
-        private void CreateButton(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CreateEventPage));
         }

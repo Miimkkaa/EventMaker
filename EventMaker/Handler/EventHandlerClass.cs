@@ -47,7 +47,7 @@ namespace EventMaker.Handler
             //
 
             _catalog.Events.Add(forAdding);
-            await _getEvents.SavetoJson(_catalog.Events);
+            //await _getEvents.SavetoJson(_catalog.Events);
             _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
         }
 
