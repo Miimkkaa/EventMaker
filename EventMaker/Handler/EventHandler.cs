@@ -12,7 +12,7 @@ namespace EventMaker.Handler
     {
         public void CommandInvokedHandler()
         {
-            
+            //Izabela,delete this comment!
         } 
 
        public void CreateEvent()
