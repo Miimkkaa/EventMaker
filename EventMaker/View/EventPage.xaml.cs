@@ -43,9 +43,37 @@ namespace EventMaker.View
             _userSingleton = EventCatalogSingleton.GetInstance();
         }
 
+        private EventCatalogSingleton _singleton = EventCatalogSingleton.GetInstance();
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CreateEventPage));
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var myCollection = _singleton.GetEventList();
+                var selectedType = sortBox.SelectionBoxItem.ToString();
+                foreach (var _getEvents in myCollection.ToList())
+                {
+                    if (_getEvents.Type != selectedType)
+                    {
+                        myCollection.Remove(_getEvents);
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                var dialig = new MessageDialog("You have to pick a type before you can use the combo Box");
+                await dialig.ShowAsync();
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

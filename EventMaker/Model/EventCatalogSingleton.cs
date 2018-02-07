@@ -46,6 +46,23 @@ namespace EventMaker.Model
             LoadEventAsync();
             _frameNAvigation = new FrameNAvigationClass();
         }
+        public ObservableCollection<Event> GetEventList()
+        {
+            return Events;
+
+        }
+
+        public void ResetEventList()
+        {
+            GetEventList();
+
+        }
+
+        public void SetEventList(ObservableCollection<Event> eventList)
+        {
+            Events = eventList;
+
+        }
 
         public static EventCatalogSingleton GetInstance()
         {
