@@ -46,5 +46,10 @@ namespace EventMaker.View
         {
 
         }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
