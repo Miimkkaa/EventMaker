@@ -46,6 +46,23 @@ namespace EventMaker.Model
 
                     
         }
+        public ObservableCollection<Event> GetEventList()
+        {
+            return Events;
+
+        }
+
+        public void ResetEventList()
+        {
+            GetEventList();
+
+        }
+
+        public void SetEventList(ObservableCollection<Event> eventList)
+        {
+            Events = eventList;
+
+        }
 
         public static EventCatalogSingleton GetInstance()
         {
