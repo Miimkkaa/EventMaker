@@ -40,7 +40,7 @@ namespace EventMaker.Handler
             {
                 if (Evm.NewItem.Name == null || Evm.NewItem.Type == null || Evm.NewItem.Description==null || Evm.NewItem.Location==null || Evm.Date1<=DateTime.Now)
                 {
-                    MessageDialog msg = new MessageDialog("In order to create event, you have to fill the information.");
+                    MessageDialog msg = new MessageDialog("In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.", "Creating failed");
                     msg.ShowAsync();
                 }
                 else
