@@ -5,6 +5,7 @@
     xmlns:local="using:EventMaker.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:EventMaker.ViewModel"
     mc:Ignorable="d">
 
     <Grid>
@@ -12,6 +13,9 @@
             <ImageBrush ImageSource="ms-appx:///Assets/paradise.jpg"/>
         </Grid.Background>
 
+        <Grid.DataContext>
+            <viewModel:EventViewModel/>
+        </Grid.DataContext>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400" />
@@ -30,14 +34,16 @@
         <StackPanel Grid.Row="1" Grid.Column="1">
 
             <TextBlock  Text="Name: " FontSize="25" Foreground="White" FontFamily="Modern Serif" />
-            <TextBox   Margin="100,-30,40,0" x:Name="name" />
+            <TextBox   Margin="100,-30,40,0" Text="{Binding Name, Mode=TwoWay}" x:Name="name" />
             <TextBlock Text="Type:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
-            <TextBox  Margin="100,-30,40,0" Name="type" />
+            <TextBox  Margin="100,-30,40,0" Text="{Binding SelectedEvent.Type, Mode=TwoWay}" Name="type" />
             <TextBlock Text="Description:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
-            <TextBox   Margin="160,-30,40,0" Name="description"/>
+            <TextBox   Margin="160,-30,40,0" Text="{Binding SelectedEvent.Description, Mode=TwoWay}" Name="description"/>
             <TextBlock Text="Place:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif" />
-            <TextBox Margin="90,-30,40,0"  Name="place"/>
-            <Button  Content="UPDATE" HorizontalAlignment="Center" Margin="0,30,0,0" Width="120" Height="40" Foreground="White" FontFamily="Modern Serif" Background="Black"/>
+            <TextBox Margin="90,-30,40,0" Text="{Binding SelectedEvent.Location, Mode=TwoWay}" Name="place"/>
+            <DatePicker Date="{Binding Date1, Mode=TwoWay}"></DatePicker>
+            <TimePicker Time="{Binding Time1, Mode=TwoWay}"></TimePicker>
+            <Button Command="{Binding UpDateEvent}" Content="UPDATE" HorizontalAlignment="Center" Margin="0,30,0,0" Width="120" Height="40" Foreground="White" FontFamily="Modern Serif" Background="Black"/>
         </StackPanel>
 
     </Grid>

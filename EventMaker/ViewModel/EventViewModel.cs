@@ -39,7 +39,6 @@ namespace EventMaker.ViewModel
 
         public RelayCommand CreateEvent { get; set; }
         public RelayCommand DeleteEvent { get; set; }
-        //public RelayCommand SelectEvent { get; set; }
 
         public RelayCommand UpDateEvent { get; set; }
         
@@ -120,7 +119,7 @@ namespace EventMaker.ViewModel
 
         public void DoUpdate()
         {
-            _eventHandler.UpdateEvent();
+            _eventHandler.UpdateEvent(SelectedEvent);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

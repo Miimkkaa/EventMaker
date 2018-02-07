@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using EventMaker.Common;
 using EventMaker.Convertor;
 using EventMaker.Model;
@@ -56,10 +58,21 @@ namespace EventMaker.Handler
             await _getEvents.SavetoJson(_catalog.Events);
         }
 
-        public async void UpdateEvent()
+        public async void UpdateEvent(Event forUpdate)
         {
-            //await _getEvents.SavetoJson(_catalog.Events);
+            foreach (var item in _catalog.Events)
+            {
+                if (item.Name == Evm.SelectedEvent.Name && item.Type == Evm.SelectedEvent.Type && item.Description == Evm.SelectedEvent.Description && item.DateTime == Evm.SelectedEvent.DateTime && item.Location == Evm.SelectedEvent.Location)
+                {
+                    _catalog.Events.Remove(Evm.SelectedEvent);
+                    DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Evm.Date1, Evm.Time1);
+                    _catalog.Events.Add(new Event(Evm.SelectedEvent.Name, Evm.SelectedEvent.Type, Evm.SelectedEvent.Description, date, Evm.SelectedEvent.Location));
+                    await _getEvents.SavetoJson(_catalog.Events);
+                    _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
+                }
+            }
         }
+
 
     }
 }

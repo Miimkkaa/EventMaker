@@ -8,9 +8,11 @@ using Windows.Devices.Pwm;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using EventMaker.Common;
+using EventMaker.Handler;
 using EventMaker.NetLibrary;
 using EventMaker.Persistancy;
 using EventMaker.View;
+using EventMaker.ViewModel;
 
 namespace EventMaker.Model
 {
@@ -43,8 +45,6 @@ namespace EventMaker.Model
             };
             LoadEventAsync();
             _frameNAvigation = new FrameNAvigationClass();
-
-                    
         }
 
         public static EventCatalogSingleton GetInstance()
@@ -73,6 +73,10 @@ namespace EventMaker.Model
             }
         }
 
+        public void SetEvent(Event ev)
+        {
+            _event = ev;
+        }
         public string GetName()
         {
             return _event.Name;
