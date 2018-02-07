@@ -30,6 +30,7 @@ namespace EventMaker.View
     {
         private EventViewModel evm;
         private EventCatalogSingleton _userSingleton;
+
         public EventPage()
         {
             this.InitializeComponent();
@@ -45,11 +46,6 @@ namespace EventMaker.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CreateEventPage));
-        }
-
-        private void UpDate_Button(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(UpdatePage), evm.SelectedEvent);
         }
     }
 }

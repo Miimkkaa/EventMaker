@@ -29,18 +29,27 @@ namespace EventMaker.ViewModel
         private EventHandlerClass _eventHandler;
         private DateTimeOffset _date;
         private TimeSpan _time;
+        private Event _selectedItem;
+        private FrameNAvigationClass _frameNAvigation;
 
         //props
-        public Event SelectedEvent { get; set; }
         public Event NewItem { get; set; }
+
+        public Event SelectedEvent
+        {
+            get => _selectedItem;
+            set { _selectedItem = value;
+                OnPropertyChanged(nameof(SelectedEvent));
+        }
+    }
 
         public EventCatalogSingleton SingletonEvent { get => _userSingleton;
             set { _userSingleton = value; OnPropertyChanged(nameof(_userSingleton)); }}
 
         public RelayCommand CreateEvent { get; set; }
         public RelayCommand DeleteEvent { get; set; }
-
         public RelayCommand UpDateEvent { get; set; }
+        public RelayCommand NextPage { get; set; }
         
         public string ID
         {
@@ -82,14 +91,17 @@ namespace EventMaker.ViewModel
             }
         }
 
-        public DateTimeOffset Date1 { get => _date; set { _date = value; OnPropertyChanged(nameof(Date1)); } }
-
-        public TimeSpan Time1
+        public DateTimeOffset Date1
         {
-            get => _time;
-            set { _time = value; OnPropertyChanged(nameof(Time1));
+            get => _date;
+            set
+            {
+                _date = value;
+                OnPropertyChanged(nameof(Date1));
+            }
         }
-    }
+
+        public TimeSpan Time1 { get => _time; set { _time = value; OnPropertyChanged(nameof(Time1)); } }
 
         //ctor
         public EventViewModel()
@@ -102,9 +114,13 @@ namespace EventMaker.ViewModel
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
             UpDateEvent = new RelayCommand(DoUpdate);
+            NextPage = new RelayCommand(DoNextPage);
 
            _eventHandler = new EventHandlerClass(this);
             NewItem = new Event();
+            _frameNAvigation = new FrameNAvigationClass();
+            //SelectedEvent = new Event();
+           
         }
 
         public void DoAdd()
@@ -120,6 +136,14 @@ namespace EventMaker.ViewModel
         public void DoUpdate()
         {
             _eventHandler.UpdateEvent(SelectedEvent);
+        }
+
+        public void DoNextPage()
+        {
+            _userSingleton.SetEvent(SelectedEvent);
+            _frameNAvigation.ActivateFrameNavigation(typeof(UpdatePage));
+            Name = _userSingleton.GetName();
+            ID = _userSingleton.GetType();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

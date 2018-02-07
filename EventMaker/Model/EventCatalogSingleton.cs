@@ -77,6 +77,7 @@ namespace EventMaker.Model
         {
             _event = ev;
         }
+
         public string GetName()
         {
             return _event.Name;

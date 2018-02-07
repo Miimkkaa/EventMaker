@@ -46,7 +46,7 @@
         </ListView>
         <Button Grid.Row="1" Grid.Column="1" Margin="252,500,0,172" Width="120" Height="40" Content="CREATE" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click"/>
         <Button Grid.Row="1" Grid.Column="1" Margin="452,500,0,172" Width="120" Height="40" Content="DELETE" FontFamily="Modern Serif" Command="{Binding DeleteEvent}"  Background="Black" Foreground="#FFFAF4F4" FontSize="20"/>
-        <Button Grid.Row="1" Grid.Column="1" Margin="652,500,0,172" Width="120" Height="40" Content="UPDATE" FontFamily="Modern Serif" FontSize="20" Background="Black" Foreground="#FFFAF4F4" Click="UpDate_Button"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="652,500,0,172" Width="120" Height="40" Content="UPDATE" FontFamily="Modern Serif" Command="{Binding NextPage}" FontSize="20" Background="Black" Foreground="#FFFAF4F4"/>
         <TextBlock Grid.Column="1" Height="90" Margin="252,66,248,44" Text="EVENTIME" TextAlignment="Center" Width="500" FontFamily="Modern Serif" FontSize="72" FontWeight="Bold" Foreground="#FFFAF4F4"/>
     </Grid>
 </Page>

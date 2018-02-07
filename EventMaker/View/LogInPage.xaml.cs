@@ -33,17 +33,17 @@ namespace EventMaker.View
         //Logic for login
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (username.Text == "Ben" && password.Text == "123")
+            if (username.Text == "Ben" && password.Password == "123")
             {
                 _loginStatus = true;
                 Frame.Navigate(typeof(EventPage));
             }
-            else if (username.Text == "ooo" && password.Text == "ooo")
+            else if (username.Text == "ooo" && password.Password == "ooo")
             {
                 _loginStatus = true;
                 Frame.Navigate(typeof(EventPage));
             }
-            else if (username.Text == "Mimi" && password.Text == "789")
+            else if (username.Text == "Mimi" && password.Password == "789")
             {
                 _loginStatus = true;
                 Frame.Navigate(typeof(EventPage));
