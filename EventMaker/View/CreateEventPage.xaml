@@ -9,42 +9,35 @@
     mc:Ignorable="d">
 
 
-    <Grid Margin="-40,-2,0,4" >
-        
+    <Grid Margin="-40,-2,0,4">
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="33*"/>
-            <ColumnDefinition Width="35*"/>
-            <ColumnDefinition Width="188*"/>
+            <ColumnDefinition Width="185"/>
+            <ColumnDefinition Width="118"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.DataContext>
             <viewModel:EventViewModel/>
         </Grid.DataContext>
-        
+
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/1.jpg" Opacity="65"/>
         </Grid.Background>
 
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="109,12,0,0" TextWrapping="Wrap" Text="CREATE NEW EVENT" FontSize="30" FontFamily="Modern serif" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="57" Width="316" Grid.Column="2"/>
-
-        <TextBlock x:Name="textBlockID1" HorizontalAlignment="Left" Margin="4,76,0,0" TextWrapping="Wrap" Text="NAME" FontFamily="Modern seriff" Foreground="White" VerticalAlignment="Top" Grid.Column="1"/>
-            <TextBox x:Name="textBoxID7" Text="{Binding NewItem.Type, Mode=TwoWay}" HorizontalAlignment="Left" Margin="24,74,0,0" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Top" Height="33" Width="182" PlaceholderText="NAME" Grid.Column="2" TextChanged="textBoxID7_TextChanged" />
-        <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="6,139,0,0" TextWrapping="Wrap" Text="TYPE" FontFamily="Modern serif" Foreground="White" VerticalAlignment="Top" Grid.Column="1"/>
-            <TextBox x:Name="textBoxName"  Text="{Binding NewItem.Name, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="24,139,0,0" TextWrapping="Wrap"
-			VerticalAlignment="Top" Width="182" Foreground="White" PlaceholderText="TYPE" Grid.Column="2"/>
-            <TextBlock x:Name="textBlockDescription"   HorizontalAlignment="Left" Margin="6,218,0,0" TextWrapping="Wrap" Foreground="White" Text="DESCRIPTION"  FontFamily="Modern serif" VerticalAlignment="Top" Grid.Column="1"/>
-            <TextBox x:Name="textBoxDescription" Text="{Binding NewItem.Description, Mode=TwoWay}" HorizontalAlignment="Left" Margin="28,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Width="182" PlaceholderText="DESCRIPTION" TextChanged="textBoxDescription_TextChanged" Grid.Column="2"/>
-        <TextBlock x:Name="textBlockPlace" HorizontalAlignment="Left" Margin="0,286,0,0" TextWrapping="Wrap"  Foreground="White" Text="PLACE" FontFamily="Modern serif" VerticalAlignment="Top" Grid.Column="1"/>
-            <TextBox x:Name="textBoxPlace" Text="{Binding NewItem.Location, Mode=TwoWay}" HorizontalAlignment="Left" Margin="28,290,0,0" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Top" Width="182" PlaceholderText="PLACE" Grid.Column="2" />
-        <TextBlock x:Name="textBlockDate" HorizontalAlignment="Left" Margin="2,364,0,0" TextWrapping="Wrap" Foreground="White" Text="DATE" FontFamily="Modern serif" VerticalAlignment="Top" Grid.Column="1"/>
-
-        <DatePicker Date="{Binding Date1, Mode=TwoWay}"  HorizontalAlignment="Left" Margin="26,358,0,0" Foreground="White" VerticalAlignment="Top" Grid.Column="2"/>
-        <TextBlock x:Name="textBlockTime" HorizontalAlignment="Left" Margin="0,439,0,0" Foreground="White" TextWrapping="Wrap" Text="TIME" FontFamily="Modern serif" VerticalAlignment="Top" Grid.Column="1"/>
-        <TimePicker Time="{Binding Time1, Mode=TwoWay}" HorizontalAlignment="Left" Margin="26,431,0,0" VerticalAlignment="Top" Foreground="White" Width="296" Grid.Column="2"/>
-
-            <Button x:Name="buttonCreate" Command="{Binding CreateEvent, Mode=TwoWay}" Content="CREATE EVENT" HorizontalAlignment="Left" Margin="33,500,0,0" Foreground="White" VerticalAlignment="Top" FontFamily="Modern serif" Grid.Column="2"/>
-
-        <!--<Button x:Name="buttonListEvent" Content="List Events" HorizontalAlignment="Left" Margin="600,500,0,0" VerticalAlignment="Top" Click="buttonListEvent_Click"/>-->
-
+        <TextBlock Margin="10,47,293,581" Text="CREATE EVENT" TextAlignment="Center" FontSize="50" FontFamily="Modern serif" FontWeight="Bold" Foreground="White" Grid.Column="2"/>
+        <TextBlock Margin="111,152,806,536" Text="NAME" FontFamily="Modern seriff" Foreground="White" Grid.Column="2" Width="100" Height="30" RenderTransformOrigin="0.398,-1.7"/>
+        <TextBox Text="{Binding NewItem.Type, Mode=TwoWay}" Margin="285,213,342,465" Foreground="White" PlaceholderText="NAME" Grid.Column="2" TextChanged="textBoxID7_TextChanged" FontFamily="Modern serif" Width="390" Height="40" />
+        <TextBlock Margin="111,223,806,465" Text="TYPE" Foreground="White" Grid.Column="2" Width="100" Height="30" FontFamily="Modern serif"/>
+        <TextBox Text="{Binding NewItem.Name, Mode=TwoWay}" Margin="285,142,342,536" Foreground="White" FontFamily="Modern serif" PlaceholderText="TYPE" Grid.Column="2" Width="390" Height="40"/>
+        <TextBlock  Margin="111,289,806,399" Foreground="White" Text="DESCRIPTION"  FontFamily="Modern serif" Grid.Column="2" Width="100" Height="30" RenderTransformOrigin="-0.185,0.125"/>
+        <TextBox Text="{Binding NewItem.Description, Mode=TwoWay}" Margin="285,279,342,399" FontFamily="Modern serif" Foreground="White" PlaceholderText="DESCRIPTION" TextChanged="textBoxDescription_TextChanged" Grid.Column="2" Width="390" Height="40"/>
+        <TextBlock Margin="111,357,806,331" Foreground="White" Text="PLACE" FontFamily="Modern serif" Grid.Column="2" Width="100" Height="30"/>
+        <TextBox Text="{Binding NewItem.Location, Mode=TwoWay}" Margin="285,357,342,321" Foreground="White" FontFamily="Modern serif" PlaceholderText="PLACE" Grid.Column="2" Width="390" Height="40" />
+        <TextBlock  Margin="111,439,806,239" TextWrapping="Wrap" Foreground="White" Text="DATE" FontFamily="Modern serif" Grid.Column="2" SelectionChanged="TextBlock_SelectionChanged" Width="100" Height="40"/>
+        <DatePicker Date="{Binding Date1, Mode=TwoWay}" FontFamily="Modern serif" Margin="375,439,0,249" Foreground="White" Grid.Column="2" Height="30" Width="300"/>
+        <TextBlock Margin="111,516,806,162" Foreground="White" Text="TIME" FontFamily="Modern serif" Grid.Column="2" Width="100" Height="40"/>
+        <TimePicker Time="{Binding Time1, Mode=TwoWay}" Margin="375,516,0,172" FontFamily="Modern serif" Foreground="White" Width="300" Grid.Column="2" Height="30"/>
+        <Button Command="{Binding CreateEvent, Mode=TwoWay}" Content="CREATE EVENT" Margin="285,627,0,61" Foreground="White" Background="Black" FontFamily="Modern serif" Grid.Column="2" Height="30" Width="127" />
     </Grid>
 </Page>

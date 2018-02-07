@@ -25,19 +25,19 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <TextBlock Text="Update the Event" HorizontalAlignment="Center" Foreground="AliceBlue" FontSize="60"/>
+            <TextBlock Text="UPDATE EVENT" HorizontalAlignment="Center" Foreground="White" FontSize="60" FontWeight="Bold" FontFamily="Modern Serif"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="0">
+        <StackPanel Grid.Row="1" Grid.Column="1">
 
-            <TextBlock  Text="Name: " FontSize="25" Foreground="AliceBlue" />
-            <TextBox   Margin="90,-30,40,0" Name="name" />
-            <TextBlock Text="Type:" Foreground="AliceBlue" FontSize="25" Margin="0,10,0,0"/>
-            <TextBox  Margin="90,-30,40,0" Name="type" />
-            <TextBlock Text="Description:" Foreground="AliceBlue" FontSize="25" Margin="0,10,0,0"/>
-            <TextBox   Margin="140,-30,40,0" Name="description"/>
-            <TextBlock Text="Place:" Foreground="AliceBlue" FontSize="25" Margin="0,10,0,0" />
+            <TextBlock  Text="Name: " FontSize="25" Foreground="White" FontFamily="Modern Serif" />
+            <TextBox   Margin="100,-30,40,0" x:Name="name" />
+            <TextBlock Text="Type:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
+            <TextBox  Margin="100,-30,40,0" Name="type" />
+            <TextBlock Text="Description:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
+            <TextBox   Margin="160,-30,40,0" Name="description"/>
+            <TextBlock Text="Place:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif" />
             <TextBox Margin="90,-30,40,0"  Name="place"/>
-            <Button  Content="Update" HorizontalAlignment="Center" Margin="0,40,0,0" Foreground="AliceBlue"/>
+            <Button  Content="UPDATE" HorizontalAlignment="Center" Margin="0,30,0,0" Width="120" Height="40" Foreground="White" FontFamily="Modern Serif" Background="Black"/>
         </StackPanel>
 
     </Grid>
