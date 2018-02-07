@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Cryptography.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -23,6 +25,7 @@ namespace EventMaker.View
     /// </summary>
     public sealed partial class LogInPage : Page
     {
+        private bool _loginStatus;
         public LogInPage()
         {
             this.InitializeComponent();
@@ -32,14 +35,22 @@ namespace EventMaker.View
         {
             if (username.Text == "Ben" && password.Text == "123")
             {
+                _loginStatus = true;
                 Frame.Navigate(typeof(EventPage));
             }
-            if (username.Text == "ooo" && password.Text == "ooo")
+            else if (username.Text == "ooo" && password.Text == "ooo")
             {
+                _loginStatus = true;
+                Frame.Navigate(typeof(EventPage));
+            }
+            else if (username.Text == "Mimi" && password.Text == "789")
+            {
+                _loginStatus = true;
                 Frame.Navigate(typeof(EventPage));
             }
             else
             {
+                _loginStatus = false;
                 MessageDialog msg = new MessageDialog("Wrong username or password,please try again.");
                 await msg.ShowAsync();
             }
