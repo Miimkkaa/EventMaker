@@ -7,6 +7,7 @@ using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -48,8 +49,6 @@ namespace EventMaker.View
 
         private void UpDate_Button(object sender, RoutedEventArgs e)
         {
-            _userSingleton.SetEvent(evm.SelectedEvent);
-            _userSingleton.GetName();
             Frame.Navigate(typeof(UpdatePage), evm.SelectedEvent);
         }
     }
