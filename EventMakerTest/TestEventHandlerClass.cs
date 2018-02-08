@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EventMaker.Convertor;
 using EventMaker.Handler;
 using EventMaker.Model;
 using EventMaker.ViewModel;
@@ -12,14 +11,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EventMakerTest
 {
     [TestClass]
-    class TestEventHandlerClass
+    public class TestEventHandlerClass
     {
         private EventViewModel evm;
         private EventHandlerClass ehc;
         private Event eventt;
         private EventCatalogSingleton ecs;
-
-
 
         [TestInitialize]
         public void BeforeTest()
@@ -31,7 +28,7 @@ namespace EventMakerTest
 
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void CreateEventTest()
         {
             // Arrange
@@ -43,6 +40,23 @@ namespace EventMakerTest
             Assert.AreEqual("Type", eventt.Type);
         }
 
+        [TestMethod]
 
+        public void ExceptionTest()
+        {
+            try
+            {
+
+                evm.NewItem.Location = null;
+                ehc.CreateEvent();
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual(e.Message,
+                    "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.");
+                throw;
+            }
+
+        }
     }
 }

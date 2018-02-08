@@ -16,13 +16,13 @@ using EventMaker.ViewModel;
 
 namespace EventMaker.Handler
 {
-   public class EventHandlerClass
+    public class EventHandlerClass
     {
         //instance fields
         private readonly PersistancyService _getEvents;
         private FrameNAvigationClass _frameNAvigation;
         private EventCatalogSingleton _catalog;
-        private EventViewModel Evm { get; }
+        public EventViewModel Evm { get; }
 
         //props
 
