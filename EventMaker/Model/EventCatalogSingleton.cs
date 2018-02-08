@@ -16,7 +16,7 @@ using EventMaker.ViewModel;
 
 namespace EventMaker.Model
 {
-    class EventCatalogSingleton
+    public class EventCatalogSingleton
     {
         //instance fields
         private readonly PersistancyService _getEvents;

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMaker", "EventMaker\EventMaker.csproj", "{254DD774-4371-4273-9198-959253B67F1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMakerTest", "EventMakerTest\EventMakerTest.csproj", "{231AFFEC-8A48-488A-9CB6-6702A44BE603}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,24 @@ Global
 		{254DD774-4371-4273-9198-959253B67F1D}.Release|x86.ActiveCfg = Release|x86
 		{254DD774-4371-4273-9198-959253B67F1D}.Release|x86.Build.0 = Release|x86
 		{254DD774-4371-4273-9198-959253B67F1D}.Release|x86.Deploy.0 = Release|x86
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|ARM.ActiveCfg = Debug|ARM
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|ARM.Build.0 = Debug|ARM
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|ARM.Deploy.0 = Debug|ARM
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|x64.ActiveCfg = Debug|x64
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|x64.Build.0 = Debug|x64
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|x64.Deploy.0 = Debug|x64
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|x86.ActiveCfg = Debug|x86
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|x86.Build.0 = Debug|x86
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Debug|x86.Deploy.0 = Debug|x86
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|ARM.ActiveCfg = Release|ARM
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|ARM.Build.0 = Release|ARM
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|ARM.Deploy.0 = Release|ARM
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|x64.ActiveCfg = Release|x64
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|x64.Build.0 = Release|x64
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|x64.Deploy.0 = Release|x64
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|x86.ActiveCfg = Release|x86
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|x86.Build.0 = Release|x86
+		{231AFFEC-8A48-488A-9CB6-6702A44BE603}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

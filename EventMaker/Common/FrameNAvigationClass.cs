@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace EventMaker.Common
 {
-    class FrameNAvigationClass
+    public class FrameNAvigationClass
     {
         //for passing only type
         public void ActivateFrameNavigation(Type type)

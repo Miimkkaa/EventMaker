@@ -7,7 +7,7 @@ using EventMaker.Model;
 
 namespace EventMaker.ViewModel
 {
-    class UpdateVm
+    public class UpdateVm
     {
         private EventCatalogSingleton _usersinglCatalogSingleton;
         

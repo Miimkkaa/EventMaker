@@ -18,7 +18,7 @@ using EventMaker.View;
 
 namespace EventMaker.ViewModel
 {
-    class EventViewModel : INotifyPropertyChanged
+    public class EventViewModel : INotifyPropertyChanged
     {
         //instance fields
         private string _id;

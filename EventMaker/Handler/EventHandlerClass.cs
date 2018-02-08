@@ -16,7 +16,7 @@ using EventMaker.ViewModel;
 
 namespace EventMaker.Handler
 {
-    class EventHandlerClass
+   public class EventHandlerClass
     {
         //instance fields
         private readonly PersistancyService _getEvents;
