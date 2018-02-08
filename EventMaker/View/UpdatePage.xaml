@@ -34,9 +34,9 @@
         <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="5" BorderBrush="White">
 
             <TextBlock  Text="Name: " FontSize="25" Foreground="White" FontFamily="Modern Serif" />
-            <TextBox   Margin="100,-30,40,0" Text="{Binding Name, Mode=TwoWay}" x:Name="name" FontFamily="Modern Serif" Foreground="White"/>
+            <TextBox Margin="100,-30,40,0" Text="{Binding Name, Mode=TwoWay}" x:Name="name" FontFamily="Modern Serif" Foreground="White"/>
             <TextBlock Text="Type:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
-            <TextBox  Margin="100,-30,40,0" Text="{Binding SelectedEvent.Type, Mode=TwoWay}" Name="type" FontFamily="Modern Serif" Foreground="White"/>
+            <TextBox  Margin="100,-30,40,0" Text="{Binding ID, Mode=TwoWay}" Name="type" FontFamily="Modern Serif" Foreground="White"/>
             <TextBlock Text="Description:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
             <TextBox   Margin="160,-30,40,0" Text="{Binding SelectedEvent.Description, Mode=TwoWay}" Name="description" FontFamily="Modern Serif" Foreground="White"/>
             <TextBlock Text="Place:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif" />

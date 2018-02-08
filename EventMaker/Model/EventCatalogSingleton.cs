@@ -9,7 +9,6 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using EventMaker.Common;
 using EventMaker.Handler;
-using EventMaker.NetLibrary;
 using EventMaker.Persistancy;
 using EventMaker.View;
 using EventMaker.ViewModel;
@@ -78,7 +77,7 @@ namespace EventMaker.Model
         {
             try
             {
-                Events = await _getEvents.LoadFromJson();
+                    Events = await _getEvents.LoadFromJson();
             }
             catch (Exception e)
             {

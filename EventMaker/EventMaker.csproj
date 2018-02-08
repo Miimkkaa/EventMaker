@@ -93,7 +93,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Common\FrameNAvigationClass.cs" />
-    <Compile Include="Library\ObesrvableCollectionClass.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>

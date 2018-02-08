@@ -25,7 +25,7 @@ namespace EventMaker.ViewModel
         private string _description;
         private string _name;
         private string _place;
-        public EventCatalogSingleton _userSingleton;
+        private EventCatalogSingleton _userSingleton;
         private EventHandlerClass _eventHandler;
         private DateTimeOffset _date;
         private TimeSpan _time;
@@ -35,28 +35,37 @@ namespace EventMaker.ViewModel
         //props
         public Event NewItem { get; set; }
 
-        public Event SelectedEvent
-        {
-            get => _selectedItem;
-            set { _selectedItem = value;
-                OnPropertyChanged(nameof(SelectedEvent));
-        }
-    }
-
-        public EventCatalogSingleton SingletonEvent { get => _userSingleton;
-            set { _userSingleton = value; OnPropertyChanged(nameof(_userSingleton)); }}
-
         public RelayCommand CreateEvent { get; set; }
         public RelayCommand DeleteEvent { get; set; }
         public RelayCommand UpDateEvent { get; set; }
         public RelayCommand NextPage { get; set; }
-        
+
+        public Event SelectedEvent
+        {
+            get => _selectedItem;
+            set
+            { _selectedItem = value;
+                OnPropertyChanged(nameof(SelectedEvent));
+            }
+            
+        }
+
+        public EventCatalogSingleton SingletonEvent
+        {
+            get => _userSingleton;
+            set
+            {
+                _userSingleton = value;
+                OnPropertyChanged(nameof(_userSingleton));
+            }
+        }
+
         public string ID
         {
             get { return _id; }
             set
             {
-                _id = value; 
+                _id = value;
                 OnPropertyChanged(nameof(ID));
             }
         }
@@ -101,12 +110,21 @@ namespace EventMaker.ViewModel
             }
         }
 
-        public TimeSpan Time1 { get => _time; set { _time = value; OnPropertyChanged(nameof(Time1)); } }
+        public TimeSpan Time1
+        {
+            get => _time;
+            set
+            {
+                _time = value;
+                OnPropertyChanged(nameof(Time1));
+            }
+        }
 
         //ctor
         public EventViewModel()
         {
             _userSingleton = EventCatalogSingleton.GetInstance();
+
             DateTime dt = System.DateTime.Now;
             _date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0, new TimeSpan());
             _time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
@@ -114,13 +132,12 @@ namespace EventMaker.ViewModel
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
             UpDateEvent = new RelayCommand(DoUpdate);
-            NextPage = new RelayCommand(DoNextPage);
 
            _eventHandler = new EventHandlerClass(this);
             NewItem = new Event();
             _frameNAvigation = new FrameNAvigationClass();
-            //SelectedEvent = new Event();
-           
+            SelectedEvent = new Event();
+            NextPage = new RelayCommand(DoNextPage);
         }
 
         public void DoAdd()
@@ -140,10 +157,7 @@ namespace EventMaker.ViewModel
 
         public void DoNextPage()
         {
-            _userSingleton.SetEvent(SelectedEvent);
-            _frameNAvigation.ActivateFrameNavigation(typeof(UpdatePage));
-            Name = _userSingleton.GetName();
-            ID = _userSingleton.GetType();
+            _eventHandler.DoNextPage();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

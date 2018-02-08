@@ -23,7 +23,7 @@ namespace EventMaker.Model
         public DateTime DateTime { get => _dateTime; set => _dateTime = value; }
         public string Location { get => _location; set => _location = value; }
 
-        //Event constructor
+        //Event constructors
         public Event( string name, string type, string description, DateTime datetime, string location)
         {
             Name = name;

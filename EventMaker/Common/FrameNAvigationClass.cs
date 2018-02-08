@@ -20,10 +20,10 @@ namespace EventMaker.Common
         }
 
         //for passing type and the object
-        public void ActivateFrameNavigation(Type type, Object currentUser)
+        public void ActivateFrameNavigation(Type type, Object currentEvent)
         {
             var frame = (Frame)Window.Current.Content;
-            frame.Navigate(type, currentUser);
+            frame.Navigate(type, currentEvent);
             Window.Current.Content = frame;
             Window.Current.Activate();
         }

@@ -83,6 +83,11 @@ namespace EventMaker.Handler
             }
         }
 
-
+        public void DoNextPage()
+        {
+            _catalog.SetEvent(Evm.SelectedEvent);
+            _frameNAvigation.ActivateFrameNavigation(typeof(UpdatePage), Evm.SelectedEvent);
+        }
+        
     }
 }

@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using EventMaker.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +23,16 @@ namespace EventMaker.View
     /// </summary>
     public sealed partial class UpdatePage : Page
     {
+        private EventViewModel evm;
         public UpdatePage()
         {
             this.InitializeComponent();
+        }
+
+        public void CheckAndShow()
+        {
+            name.Text = evm.SelectedEvent.Name;
+            type.Text = evm.SelectedEvent.Type;
         }
     }
 }
