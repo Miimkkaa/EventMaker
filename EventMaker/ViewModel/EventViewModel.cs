@@ -40,7 +40,7 @@ namespace EventMaker.ViewModel
         public RelayCommand CreateEvent { get; set; }
         public RelayCommand DeleteEvent { get; set; }
         //public RelayCommand SelectEvent { get; set; }
-
+       public RelayCommand ResetEvent { get; set; }
         public RelayCommand UpDateEvent { get; set; }
         
         public string ID
@@ -103,10 +103,19 @@ namespace EventMaker.ViewModel
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
             UpDateEvent = new RelayCommand(DoUpdate);
+            //ResetEvent= new RelayCommand(DoReset);
+           
 
            _eventHandler = new EventHandlerClass(this);
             NewItem = new Event();
         }
+
+        //method for reset
+
+        //public void DoReset()
+        //{
+        //    _eventHandler.ResetEvents();
+        //}
 
         public void DoAdd()
         {

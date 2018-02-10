@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -37,36 +38,66 @@ namespace EventMaker.View
         }
 
         private EventCatalogSingleton _singleton = EventCatalogSingleton.GetInstance();
+     
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CreateEventPage));
         }
 
+        
+
+        
+
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var myCollection = _singleton.GetEventList();
-                var selectedType = sortBox.SelectionBoxItem.ToString();
-                foreach (var _getEvents in myCollection.ToList())
-                {
-                    if (_getEvents.Type != selectedType)
-                    {
-                        myCollection.Remove(_getEvents);
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-                var dialig = new MessageDialog("You have to pick a type before you can use the combo Box");
-                await dialig.ShowAsync();
-            }
-        }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+            //sorting logic,it delets the items leaving only item with selected type acording to combobox
+
+            //try
+            //{
+            //    var myCollection = _singleton.Events;
+            //    var selectedType = sortBox.SelectionBoxItem.ToString();
+            //    foreach (var getEvents in myCollection.ToList())
+            //    {
+            //        if (getEvents.Type != selectedType)
+            //        {
+            //            myCollection.Remove(getEvents);
+            //        }
+            //    }
+            //}
+            //catch (Exception exception)
+            //{
+            //    var dialig = new MessageDialog("You have to pick a type before you can use the combo Box");
+            //    await dialig.ShowAsync();
+            //}
+        }
+       
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
 
+            //so this is reset code
+
+            //try
+            //{
+            //    var myCollection = _singleton.Events;
+            //    var selectedType = sortBox.SelectionBoxItem.ToString();
+            //    foreach (var getEvents in myCollection.ToList())
+            //    {
+            //        if (getEvents.Type != selectedType)
+            //        {
+            //            _singleton.Events.Add(getEvents);
+            //        }
+            //    }
+            //}
+            //catch (Exception exception)
+            //{
+            //    var dialig = new MessageDialog("You have to pick a type before you can use the combo Box");
+            //    await dialig.ShowAsync();
+            //}
+
         }
+
+       
     }
 }

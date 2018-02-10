@@ -61,5 +61,15 @@ namespace EventMaker.Handler
             //await _getEvents.SavetoJson(_catalog.Events);
         }
 
+        //method for reseting,its not working 
+
+        //public async void ResetEvents()
+        //{
+        //    _catalog.LoadEventAsync();
+
+        //}
+
+        
+
     }
 }
