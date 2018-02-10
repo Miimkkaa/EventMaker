@@ -20,7 +20,6 @@ namespace EventMaker.Model
         //instance fields
         private readonly PersistancyService _getEvents;
         private static Event _event;
-        private FrameNAvigationClass _frameNAvigation;
 
         //props
         public ObservableCollection<Event> Events { get; set; }
@@ -29,6 +28,7 @@ namespace EventMaker.Model
         public EventCatalogSingleton()
         {
             _getEvents = new PersistancyService();
+
             Events = new ObservableCollection<Event>()
             {
                     new Event("Eminem","Concert","For people of all ages who want to have a great time and experience unforgettable moment with their friends and enjoy Eminem’s music.", DateTime.Parse("2018.07.04 12:00"), "Roskilde, Denmark (Roskilde festival)"),
@@ -42,25 +42,22 @@ namespace EventMaker.Model
                     new Event("Picture this", "Photography", "If you are interested in photography or you want to enjoy other people’s perspective of the world in pictures, you can visit us at KADK and get inspired for free.", DateTime.Parse("2018.05.04 18:00"), "Copenhagen, Denmark (KADK)"),
                     new Event("Gaming", "Games", "For all the gamers out there who want to share strategies and tricks for their favorite games, this is the place where you can meet your fellow gamer friends.", DateTime.Parse("2018.03.23 10:00"), "Roskilde, Denmark (Culture center)"),
             };
+
             LoadEventAsync();
-            _frameNAvigation = new FrameNAvigationClass();
         }
         public ObservableCollection<Event> GetEventList()
         {
             return Events;
-
         }
 
         public void ResetEventList()
         {
             GetEventList();
-
         }
 
         public void SetEventList(ObservableCollection<Event> eventList)
         {
             Events = eventList;
-
         }
 
         public static EventCatalogSingleton GetInstance()

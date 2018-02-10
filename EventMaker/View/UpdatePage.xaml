@@ -15,7 +15,7 @@
         </Grid.Background>
 
         <Grid.DataContext>
-            <viewModel:EventViewModel/>
+            <viewModel:UpdateVm/>
         </Grid.DataContext>
 
         <Grid.ColumnDefinitions>
@@ -35,18 +35,18 @@
         <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="5" BorderBrush="White">
 
             <TextBlock  Text="Name: " FontSize="25" Foreground="White" FontFamily="Modern Serif" />
-            <TextBox Margin="100,-30,40,0" Text="{Binding SelectedEvent.Name, Mode=TwoWay}" x:Name="name" FontFamily="Modern Serif" Foreground="White"/>
+            <TextBox Margin="100,-30,40,0" Text="{Binding Name, Mode=TwoWay}" x:Name="name" FontFamily="Modern Serif" Foreground="White"/>
             <TextBlock Text="Type:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
-            <TextBox  Margin="100,-30,40,0" Text="{Binding ID, Mode=TwoWay}" Name="type" FontFamily="Modern Serif" Foreground="White"/>
+            <TextBox  Margin="100,-30,40,0" Text="{Binding Type, Mode=TwoWay}" Name="type" FontFamily="Modern Serif" Foreground="White"/>
             <TextBlock Text="Description:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif"/>
-            <TextBox   Margin="160,-30,40,0" Text="{Binding SelectedEvent.Description, Mode=TwoWay}" Name="description" FontFamily="Modern Serif" Foreground="White"/>
+            <TextBox   Margin="160,-30,40,0" Text="{Binding Description, Mode=TwoWay}" Name="description" FontFamily="Modern Serif" Foreground="White"/>
             <TextBlock Text="Place:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif" />
-            <TextBox Margin="90,-30,40,0" Text="{Binding SelectedEvent.Location, Mode=TwoWay}" Name="place" FontFamily="Modern Serif" Foreground="White"/>
+            <TextBox Margin="90,-30,40,0" Text="{Binding Location, Mode=TwoWay}" Name="place" FontFamily="Modern Serif" Foreground="White"/>
             <TextBlock Text="Date:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif" />
             <TextBlock Text="Time:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif" />
-            <DatePicker Date="{Binding Date1, Mode=TwoWay}" Margin="100,-100,40,0" FontFamily="Modern Serif" Foreground="White"/>
+            <DatePicker Margin="100,-100,40,0" FontFamily="Modern Serif" Foreground="White"/>
             <TimePicker Time="{Binding Time1, Mode=TwoWay}" Margin="100,-25,40,0" FontFamily="Modern Serif" Foreground="White"/>
-            <Button Command="{Binding UpDateEvent}" Content="UPDATE" HorizontalAlignment="Center" Margin="0,30,0,0" Width="120" Height="40" Foreground="White" FontFamily="Modern Serif" Background="Black"/>
+            <Button Command="{Binding Update}" Content="UPDATE" HorizontalAlignment="Center" Margin="0,30,0,0" Width="120" Height="40" Foreground="White" FontFamily="Modern Serif" Background="Black"/>
         </StackPanel>
 
     </Grid>

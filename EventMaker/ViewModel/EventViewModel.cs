@@ -30,14 +30,12 @@ namespace EventMaker.ViewModel
         private DateTimeOffset _date;
         private TimeSpan _time;
         private Event _selectedItem;
-        private FrameNAvigationClass _frameNAvigation;
 
         //props
         public Event NewItem { get; set; }
 
         public RelayCommand CreateEvent { get; set; }
         public RelayCommand DeleteEvent { get; set; }
-        public RelayCommand UpDateEvent { get; set; }
         public RelayCommand NextPage { get; set; }
 
         public Event SelectedEvent
@@ -131,11 +129,9 @@ namespace EventMaker.ViewModel
 
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
-            UpDateEvent = new RelayCommand(DoUpdate);
 
            _eventHandler = new EventHandlerClass(this);
             NewItem = new Event();
-            _frameNAvigation = new FrameNAvigationClass();
             SelectedEvent = new Event();
             NextPage = new RelayCommand(DoNextPage);
         }
@@ -148,11 +144,6 @@ namespace EventMaker.ViewModel
         public void DoRemove()
         {
             _eventHandler.DeleteEvent(SelectedEvent);
-        }
-
-        public void DoUpdate()
-        {
-            _eventHandler.UpdateEvent(SelectedEvent);
         }
 
         public void DoNextPage()

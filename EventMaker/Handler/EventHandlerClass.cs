@@ -22,10 +22,11 @@ namespace EventMaker.Handler
         private readonly PersistancyService _getEvents;
         private FrameNAvigationClass _frameNAvigation;
         private EventCatalogSingleton _catalog;
-        public EventViewModel Evm { get; }
 
         //props
+        public EventViewModel Evm { get; }
 
+        //constructor
         public EventHandlerClass(EventViewModel evm)
         {
             _getEvents = new PersistancyService();
@@ -34,6 +35,7 @@ namespace EventMaker.Handler
             Evm = evm;
         }
         
+        //methods
         public async void CreateEvent()
         {
             try
@@ -59,7 +61,6 @@ namespace EventMaker.Handler
                 MessageDialog msg = new MessageDialog(ex, "Error");
                 msg.ShowAsync();
             }
-
         }
 
         public async void DeleteEvent(Event fordeleting)
@@ -67,27 +68,19 @@ namespace EventMaker.Handler
             _catalog.Events.Remove(fordeleting);
             await _getEvents.SavetoJson(_catalog.Events);
         }
-
-        public async void UpdateEvent(Event forUpdate)
-        {
-            foreach (var item in _catalog.Events)
-            {
-                if (item.Name == Evm.SelectedEvent.Name && item.Type == Evm.SelectedEvent.Type && item.Description == Evm.SelectedEvent.Description && item.DateTime == Evm.SelectedEvent.DateTime && item.Location == Evm.SelectedEvent.Location)
-                {
-                    _catalog.Events.Remove(Evm.SelectedEvent);
-                    DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Evm.Date1, Evm.Time1);
-                    _catalog.Events.Add(new Event(Evm.SelectedEvent.Name, Evm.SelectedEvent.Type, Evm.SelectedEvent.Description, date, Evm.SelectedEvent.Location));
-                    await _getEvents.SavetoJson(_catalog.Events);
-                    _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
-                }
-            }
-        }
-
+        
         public void DoNextPage()
         {
-            _catalog.SetEvent(Evm.SelectedEvent);
-            _frameNAvigation.ActivateFrameNavigation(typeof(UpdatePage), Evm.SelectedEvent);
+            if(Evm.SelectedEvent.Name != null)
+            {
+                _catalog.SetEvent(Evm.SelectedEvent);
+                _frameNAvigation.ActivateFrameNavigation(typeof(UpdatePage), Evm.SelectedEvent);
+            }
+            else
+            {
+                MessageDialog msg = new MessageDialog("Object was not selected.", "Error");
+                msg.ShowAsync();
+            }
         }
-        
     }
 }

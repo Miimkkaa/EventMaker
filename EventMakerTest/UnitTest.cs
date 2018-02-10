@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using EventMaker.Handler;
 using EventMaker.Model;
 using EventMaker.ViewModel;
