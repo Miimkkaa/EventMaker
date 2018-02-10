@@ -5,12 +5,19 @@
     xmlns:local="using:EventMaker.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:EventMaker.ViewModel"
     mc:Ignorable="d">
 
     <Grid>
+        
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/pp.jpg"/>
         </Grid.Background>
+        
+        <Grid.DataContext>
+            <viewModel:LoginVm/>
+        </Grid.DataContext>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400" />
             <ColumnDefinition Width="*" />
@@ -24,10 +31,10 @@
         <StackPanel Grid.Column ="1" Grid.Row="1" BorderThickness="5" BorderBrush="White">
             <TextBlock  Margin="0,30,0,0"  TextLineBounds="Full" Text="LOG IN" HorizontalAlignment="Center" FontSize="50" IsColorFontEnabled="True" Foreground="White" FontFamily="Modern Serif" FontWeight="Bold"  />
             <TextBlock  Margin="0,20,0,0"  Text="Username:" Foreground="White" FontSize="25" FontFamily="Modern Serif"   />
-            <TextBox    Margin="150,-30,50,0" Name="username" FontFamily="Modern Serif"/>
+            <TextBox    Margin="150,-30,50,0" Name="username" Text="{Binding Username, Mode=TwoWay}" FontFamily="Modern Serif"/>
             <TextBlock  Margin="0,10,0,0" Text="Password:" FontSize="25" FontFamily="Modern Serif" Foreground="White"/>
-            <PasswordBox    Margin="150,-30,50,0" Name="password" FontFamily="Modern Serif"/>
-            <Button   Content="LOG IN" HorizontalAlignment="Center" Margin="0,30,0,0" Click="Button_Click" Foreground="White" Background="Black" Width="120" Height="40" />
+            <PasswordBox    Margin="150,-30,50,0" Name="password" Password="{Binding Password, Mode=TwoWay}" FontFamily="Modern Serif"/>
+            <Button   Content="LOG IN" Command="{Binding DoLogIn}" HorizontalAlignment="Center" Margin="0,30,0,0" Foreground="White" Background="Black" Width="120" Height="40" />
         </StackPanel>
     </Grid>
 </Page>
