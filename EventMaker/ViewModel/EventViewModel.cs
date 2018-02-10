@@ -57,6 +57,9 @@ namespace EventMaker.ViewModel
                 OnPropertyChanged(nameof(_userSingleton));
             }
         }
+        
+        public RelayCommand ResetEvent { get; set; }
+        public RelayCommand UpDateEvent { get; set; }
 
         public string ID
         {
@@ -129,12 +132,20 @@ namespace EventMaker.ViewModel
 
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
-
-           _eventHandler = new EventHandlerClass(this);
+            //ResetEvent= new RelayCommand(DoReset);
+            
+            _eventHandler = new EventHandlerClass(this);
             NewItem = new Event();
             SelectedEvent = new Event();
             NextPage = new RelayCommand(DoNextPage);
         }
+
+        //method for reset
+
+        //public void DoReset()
+        //{
+        //    _eventHandler.ResetEvents();
+        //}
 
         public void DoAdd()
         {

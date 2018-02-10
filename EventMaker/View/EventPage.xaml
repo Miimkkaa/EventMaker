@@ -27,7 +27,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SingletonEvent.Events, Mode=TwoWay}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}" Margin="0,0,10,217" >
+        <ListView Grid.Row="1" Grid.Column="1" Name="EventList" ItemsSource="{Binding SingletonEvent.Events, Mode=TwoWay}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}" Margin="0,0,10,217" >
             <ListView.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/mm.png" Opacity="0.6"/>
             </ListView.Background>
@@ -44,8 +44,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <ComboBox Grid.Row="1" Grid.Column="1" Margin="52,500,0,172" Width="160" Name="sortBox">
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="52,500,0,172" Width="160" Name="sortBox" >
             <ComboBoxItem Content="Concert" />
             <ComboBoxItem Content="Art" />
             <ComboBoxItem Content="Food" />
@@ -53,13 +52,14 @@
             <ComboBoxItem Content="Social event" />
             <ComboBoxItem Content="Photography"/>
             <ComboBoxItem Content="Dance"/>
+            <ComboBoxItem Content="Reset List" Name="Reset"/>
         </ComboBox>
-        <Button Grid.Row="1" Grid.Column="1" Margin="300,500,0,172" Width="120" Content="RESET" FontSize="20" Foreground="AliceBlue" Background="Black" Height="40" FontFamily="Modern Serif" Click="Button_Click_2"/>
-            <Button Grid.Row="1" Grid.Column="1" Margin="442,500,0,172" Width="120" Height="40" Content="FILTER" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click_1" />
+        <!--Command="{Binding ResetEvent}" u know where to put this -->
+        <Button Grid.Row="1" Grid.Column="1"  Margin="300,500,0,172" Width="120" Content="RESET" FontSize="20" Foreground="AliceBlue" Background="Black" Height="40" FontFamily="Modern Serif" Click="Button_Click_2" />
+        <Button Grid.Row="1" Grid.Column="1" Margin="442,500,0,172" Width="120" Height="40" Content="FILTER" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click_1" />
         <Button Grid.Row="1" Grid.Column="1" Margin="580,500,0,172" Width="120" Height="40" Content="CREATE" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click"/>
         <Button Grid.Row="1" Grid.Column="1" Margin="720,500,0,172" Width="120" Height="40" Content="DELETE" FontFamily="Modern Serif" Command="{Binding DeleteEvent}"  Background="Black" Foreground="#FFFAF4F4" FontSize="20"/>
-            <Button Grid.Row="1" Grid.Column="1" Margin="852,500,0,172" Width="120" Height="40" Content="UPDATE" FontFamily="Modern Serif" Command="{Binding NextPage}" FontSize="20" Background="Black" Foreground="#FFFAF4F4"/>
-
+        <Button Grid.Row="1" Grid.Column="1" Margin="852,500,0,172" Width="120" Height="40" Content="UPDATE" FontFamily="Modern Serif" Command="{Binding NextPage}" FontSize="20" Background="Black" Foreground="#FFFAF4F4"/>
         <TextBlock Grid.Column="1" Height="90" Margin="252,66,248,44" Text="EVENTIME" TextAlignment="Center" Width="500" FontFamily="Modern Serif" FontSize="72" FontWeight="Bold" Foreground="#FFFAF4F4"/>
     </Grid>
 </Page>
