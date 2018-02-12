@@ -12,7 +12,7 @@
             <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/13.jpg" Opacity="65"/>
         </Grid.Background>
         <Grid.DataContext>
-            <viewModel:EventViewModel/>
+            <viewModel:EventViewModel />
         </Grid.DataContext>
 
         <Grid.RowDefinitions>
