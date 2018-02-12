@@ -83,12 +83,10 @@ namespace EventMaker.Handler
             }
         }
 
-        //method for reseting,its not working 
-
-        //public async void ResetEvents()
-        //{
-        //    _catalog.LoadEventAsync();
-
-        //}
+        //method for reseting
+        public async void ResetEvents()
+        {
+            _catalog.LoadEventAsync();
+        }
     }
 }

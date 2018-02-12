@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.Store.Preview.InstallControl;
 using Windows.UI.Xaml.Controls;
 using EventMaker.Annotations;
 using EventMaker.Common;
@@ -37,6 +38,14 @@ namespace EventMaker.ViewModel
         public RelayCommand CreateEvent { get; set; }
         public RelayCommand DeleteEvent { get; set; }
         public RelayCommand NextPage { get; set; }
+        public RelayCommand Reset { get; set; }
+        public RelayCommand Sorting { get; set; }
+
+        //public ObservableCollection<Event> SortedEvents { get; set; }
+
+        public ObservableCollection<string> Types { get; set; }
+
+        public string SelectedType { get; set; }
 
         public Event SelectedEvent
         {
@@ -58,7 +67,7 @@ namespace EventMaker.ViewModel
             }
         }
         
-        public RelayCommand ResetEvent { get; set; }
+        //public RelayCommand ResetEvent { get; set; }
         public RelayCommand UpDateEvent { get; set; }
 
         public string ID
@@ -132,12 +141,17 @@ namespace EventMaker.ViewModel
 
             DeleteEvent = new RelayCommand(DoRemove);
             CreateEvent = new RelayCommand(DoAdd);
+            Reset = new RelayCommand(DoReset);
+            Sorting = new RelayCommand(DoSorting);
             //ResetEvent= new RelayCommand(DoReset);
             
             _eventHandler = new EventHandlerClass(this);
             NewItem = new Event();
             SelectedEvent = new Event();
             NextPage = new RelayCommand(DoNextPage);
+
+            Types = new ObservableCollection<string>(){"Art", "Food", "Games", "Photography", "Dance", "Social Event"};
+            //SortedEvents = new ObservableCollection<Event>();
         }
 
         //method for reset
@@ -160,6 +174,34 @@ namespace EventMaker.ViewModel
         public void DoNextPage()
         {
             _eventHandler.DoNextPage();
+        }
+
+        public void DoReset()
+        {
+            _eventHandler.ResetEvents();
+        }
+
+        //public ObservableCollection<Event> SearchEvent(string type)
+        //{
+        //    foreach (var item in _userSingleton.Events)
+        //    {
+        //        if (type == item.Type)
+        //        {
+        //            SortedEvents.Add(item);
+        //        }
+        //    }
+        //    return SortedEvents;
+        //}
+
+        public void DoSorting()
+        {
+            foreach (var item in _userSingleton.Events)
+            {
+                if (Types.Contains(SelectedType))
+                {
+                    _userSingleton.Events.Add(item);
+                }
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
