@@ -44,5 +44,4 @@ namespace EventMaker.Model
             return $"{Name} {Type} {Description} {DateTime} {Location}";
         }
     }
-
 }

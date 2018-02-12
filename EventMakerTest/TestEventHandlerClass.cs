@@ -46,7 +46,7 @@ namespace EventMakerTest
             double actual = ecs.Events.Count;
             double expected = 11;
             // Assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace EventMakerTest
             double expected = 10;
 
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -72,18 +72,6 @@ namespace EventMakerTest
 
             //assert
             Assert.AreEqual(expected, actual);
-        }
-        
-        [TestMethod]
-        public void DateTimeConverterTest()
-        {
-            //Act
-            DateTime _expectedDate = new DateTime(2017, 12, 12, 6, 7, 0);
-            DateTime _actualDate = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(new DateTimeOffset(2017, 12, 12, 0,0, 0, 0, new TimeSpan()),
-                new TimeSpan(6, 7, 0));
-
-            //Assert
-            Assert.AreEqual(_expectedDate, _actualDate);
         }
     }
 }

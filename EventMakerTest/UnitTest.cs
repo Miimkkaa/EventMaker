@@ -1,5 +1,6 @@
 ﻿using System;
 using Windows.Media.Capture.Frames;
+using EventMaker.Convertor;
 using EventMaker.Handler;
 using EventMaker.Model;
 using EventMaker.ViewModel;
@@ -13,22 +14,6 @@ namespace EventMakerTest
         [TestMethod()]
         public void LoginTest()
         {
-            //try
-            //{
-            //    //Arrange
-            //    LoginVm log = new LoginVm();
-            //    log.Username = "bl";
-            //    log.Password = "kanskjd";
-
-            //    //act
-            //    log.LogIn();
-            //}
-            //catch (Exception e)
-            //{
-            //    //assert
-            //    Assert.AreEqual(e.Message, "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.");
-            //}
-
             //Arrange
             LoginVm log = new LoginVm();
             log.Username = "hk";
@@ -41,8 +26,20 @@ namespace EventMakerTest
 
             //assert
             Assert.AreEqual(msg , "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.");
+            //Assert.AreEqual("k", log.Username);
         }
 
+        [TestMethod]
+        public void DateTimeConverterTest()
+        {
+            //Act
+            DateTime _expectedDate = new DateTime(2017, 12, 12, 6, 7, 0);
+            DateTime _actualDate = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(new DateTimeOffset(2017, 12, 12, 0, 0, 0, 0, new TimeSpan()),
+                new TimeSpan(6, 7, 0));
+
+            //Assert
+            Assert.AreEqual(_expectedDate, _actualDate);
+        }
     }
 }
 

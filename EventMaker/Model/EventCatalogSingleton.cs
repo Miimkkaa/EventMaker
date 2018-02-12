@@ -18,19 +18,17 @@ namespace EventMaker.Model
     public class EventCatalogSingleton
     {
         //instance fields
-        private readonly PersistancyService _getEvents;
+        public readonly PersistancyService _getEvents;
         private static Event _event;
 
         //props
         public ObservableCollection<Event> Events { get; set; }
         private static EventCatalogSingleton Instance { get; set; }
 
-        
-
-
         public  EventCatalogSingleton()
         {
             _getEvents = new PersistancyService();
+
             Events = new ObservableCollection<Event>()
             {
                 new Event("Eminem","Concert","For people of all ages who want to have a great time and experience unforgettable moment with their friends and enjoy Eminem’s music.", DateTime.Parse("2018.07.04 12:00"), "Roskilde, Denmark (Roskilde festival)"),
@@ -42,15 +40,12 @@ namespace EventMaker.Model
                     new Event("Paint bar", "Social event", "If you are both alcohol and art lover, you will love everything about this event. Come have a drink while you are showing us your hidden talents. Looking forward to meet you there.", DateTime.Parse("2018.03.09 21:00"), "Copenhagen, Denmark (Café Vivaldi)"),
                     new Event("Salsa dance class", "Dance", "If you want to learn to move like a goddess and feel the heat of Cuba going through your veins, this is the dance class for you.", DateTime.Parse("2018.03.11 17:00"), "Copenhagen, Denmark (Salsa club)"),
                     new Event("Picture this", "Photography", "If you are interested in photography or you want to enjoy other people’s perspective of the world in pictures, you can visit us at KADK and get inspired for free.", DateTime.Parse("2018.05.04 18:00"), "Copenhagen, Denmark (KADK)"),
-                    new Event("Gaming", "Games", "For all the gamers out there who want to share strategies and tricks for their favorite games, this is the place where you can meet your fellow gamer friends.", DateTime.Parse("2018.03.23 10:00"), "Roskilde, Denmark (Culture center)"),
-
+                    new Event("Gaming", "Games", "For all the gamers out there who want to share strategies and tricks for their favorite games, this is the place where you can meet your fellow gamer friends.", DateTime.Parse("2018.03.23 10:00"), "Roskilde, Denmark (Culture center)")
             };
-
 
             LoadEventAsync();
         }
-
-
+        
         public ObservableCollection<Event> GetEventList()
         {
             return Events;
@@ -82,16 +77,13 @@ namespace EventMaker.Model
         {
             try
             {
-                    _getEvents.EventsCatalog = await _getEvents.LoadFromJson();
+                Events = await _getEvents.LoadFromJson();
+                //Events = _getEvents.EventsCatalog;
             }
-            catch (Exception e)
+            catch
             {
-                _getEvents.EventsCatalog = Events;
-                await _getEvents.SavetoJson(_getEvents.EventsCatalog);
-
-                string x = e.ToString();
-                MessageDialog msd = new MessageDialog(x, "Error");
-                msd.ShowAsync();
+                await _getEvents.SavetoJson(Events);
+               //Events = _getEvents.EventsCatalog;
             }
         }
 

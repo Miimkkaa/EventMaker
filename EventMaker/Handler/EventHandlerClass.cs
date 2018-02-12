@@ -20,8 +20,8 @@ namespace EventMaker.Handler
     {
         //instance fields
         private readonly PersistancyService _getEvents;
-        private FrameNAvigationClass _frameNAvigation;
-        private EventCatalogSingleton _catalog;
+        private readonly FrameNAvigationClass _frameNAvigation;
+        private readonly EventCatalogSingleton _catalog;
 
         //props
         public EventViewModel Evm { get; }
@@ -65,8 +65,16 @@ namespace EventMaker.Handler
 
         public async void DeleteEvent(Event fordeleting)
         {
-            _catalog.Events.Remove(fordeleting);
-            await _getEvents.SavetoJson(_catalog.Events);
+            if (fordeleting.Name != null)
+            {
+                _catalog.Events.Remove(fordeleting);
+                await _getEvents.SavetoJson(_catalog.Events);
+            }
+            else
+            {
+                MessageDialog msg = new MessageDialog("Object was not selected.", "Error");
+                msg.ShowAsync();
+            }
         }
         
         public void DoNextPage()

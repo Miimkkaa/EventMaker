@@ -20,12 +20,13 @@ namespace EventMaker.Persistancy
         //saving into the file
         public async Task SavetoJson(ObservableCollection<Event> events)
         {
+            EventsCatalog = events;
             var localFolder = ApplicationData.Current.LocalFolder;
-            var jsonFile = await localFolder.CreateFileAsync("EventsFile6.txt", CreationCollisionOption.ReplaceExisting);
+            var jsonFile = await localFolder.CreateFileAsync("EventsFile4.txt", CreationCollisionOption.ReplaceExisting);
             var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Event>));
             using (var stream = await jsonFile.OpenStreamForWriteAsync())
             {
-                jsonSerializer.WriteObject(stream, events);
+                jsonSerializer.WriteObject(stream, EventsCatalog);
             }
         }
 
@@ -33,7 +34,7 @@ namespace EventMaker.Persistancy
         public async Task<ObservableCollection<Event>> LoadFromJson()
         {
             var localFolder = ApplicationData.Current.LocalFolder;
-            var jsonFile = await localFolder.GetFileAsync("EventsFile6.txt");
+            var jsonFile = await localFolder.GetFileAsync("EventsFile4.txt");
             var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Event>));
             using (var stream = await jsonFile.OpenStreamForReadAsync())
             {
