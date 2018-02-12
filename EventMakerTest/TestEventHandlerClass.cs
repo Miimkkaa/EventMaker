@@ -41,22 +41,21 @@ namespace EventMakerTest
         }
 
         [TestMethod]
-
+        [ExpectedException(typeof(EventHandlerClass))]
         public void ExceptionTest()
         {
-            //try
-            //{
+            try
+            {
 
-            //    evm.NewItem.Location = null;
-            //    ehc.CreateEvent();
-            //}
-            //catch (Exception e)
-            //{
-            //    Assert.AreEqual(e.Message,
-            //        "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.");
-            //    throw;
-            //}
-            Assert.AreEqual(0,0);
+                evm.NewItem.Location = null;
+                ehc.CreateEvent();
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual(e.Message,
+                    "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.");
+                throw;
+            }
         }
     }
 }
