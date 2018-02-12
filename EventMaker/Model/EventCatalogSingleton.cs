@@ -82,11 +82,12 @@ namespace EventMaker.Model
         {
             try
             {
-                    Events = await _getEvents.LoadFromJson();
+                    _getEvents.EventsCatalog = await _getEvents.LoadFromJson();
             }
             catch (Exception e)
             {
-                await _getEvents.SavetoJson(Events);
+                _getEvents.EventsCatalog = Events;
+                await _getEvents.SavetoJson(_getEvents.EventsCatalog);
 
                 string x = e.ToString();
                 MessageDialog msd = new MessageDialog(x, "Error");
