@@ -30,9 +30,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Grid.Row="0" >
-            <TextBlock Text="UPDATE EVENT" HorizontalAlignment="Center" Foreground="White" FontSize="60" FontWeight="Bold" FontFamily="Modern Serif"/>
+            <TextBlock Text="UPDATE EVENT" HorizontalAlignment="Center" Foreground="White" FontSize="60" FontWeight="Bold" FontFamily="Modern Serif" Height="172" Margin="17,50"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="5" BorderBrush="White">
+        <StackPanel Grid.Row="1" Grid.Column="1" BorderThickness="3" BorderBrush="White">
 
             <TextBlock  Text="Name: " FontSize="25" Foreground="White" FontFamily="Modern Serif" />
             <TextBox Margin="100,-30,40,0" Text="{Binding Name, Mode=TwoWay}" x:Name="name" FontFamily="Modern Serif" Foreground="White"/>
@@ -46,7 +46,8 @@
             <TextBlock Text="Time:" Foreground="White" FontSize="25" Margin="0,10,0,0" FontFamily="Modern Serif" />
             <DatePicker Margin="100,-100,40,0" FontFamily="Modern Serif" Foreground="White"/>
             <TimePicker Time="{Binding Time1, Mode=TwoWay}" Margin="100,-25,40,0" FontFamily="Modern Serif" Foreground="White"/>
-            <Button Command="{Binding Update}" Content="UPDATE" HorizontalAlignment="Center" Margin="0,30,0,0" Width="120" Height="40" Foreground="White" FontFamily="Modern Serif" Background="Black"/>
+            <Button Command="{Binding Update}" Content="UPDATE" HorizontalAlignment="Center" Margin="-250,40,0,0" Width="120" Height="40" Foreground="White" FontFamily="Modern Serif" Background="Black"/>
+            <Button Content="GO BACK" Margin="300,-40,0,0" Foreground="White" Background="Black" FontFamily="Modern serif" Height="40" Width="120" Click="Button_Click"/>
         </StackPanel>
 
     </Grid>

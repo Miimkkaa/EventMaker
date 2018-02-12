@@ -62,7 +62,7 @@
         <Button Grid.Row="1" Grid.Column="1" Margin="390,500,0,172" Width="120" Height="40" Content="CREATE" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click"/>
         <Button Grid.Row="1" Grid.Column="1" Margin="520,500,0,172" Width="120" Height="40" Content="DELETE" FontFamily="Modern Serif" Command="{Binding DeleteEvent}"  Background="Black" Foreground="#FFFAF4F4" FontSize="20"/>
         <Button Grid.Row="1" Grid.Column="1" Margin="650,500,0,172" Width="120" Height="40" Content="UPDATE" FontFamily="Modern Serif" Command="{Binding NextPage}" FontSize="20" Background="Black" Foreground="#FFFAF4F4"/>
-        <Button Grid.Row="1" Grid.Column="1" Margin="780,500,0,172" Width="120" Height="40" Content="LOG OUT" FontFamily="Modern Serif" FontSize="20" Background="Black" Foreground="#FFFAF4F4" BorderBrush="#FF010101"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="780,500,0,172" Width="120" Height="40" Content="LOG OUT" FontFamily="Modern Serif"  FontSize="20" Background="Black" Foreground="#FFFAF4F4" BorderBrush="#FF010101" Click="Button_Click_3"/>
         <TextBlock Grid.Column="1" Height="90" Margin="252,66,248,44" Text="EVENTIME" TextAlignment="Center" Width="500" FontFamily="Modern Serif" FontSize="72" FontWeight="Bold" Foreground="#FFFAF4F4"/>
 
     </Grid>

@@ -46,6 +46,7 @@
         <DatePicker Date="{Binding Date1, Mode=TwoWay}" FontFamily="Modern serif" Margin="390,278,0,190" Foreground="White" Grid.Column="2" Height="30" Width="300" Grid.Row="1"/>
         <TextBlock Margin="111,399,561,115" Foreground="White" Text="TIME" FontFamily="Modern serif" Grid.Column="2" Width="100" Height="40" Grid.Row="1"/>
         <TimePicker Time="{Binding Time1, Mode=TwoWay}" Margin="390,341,0,115" FontFamily="Modern serif" Foreground="White" Width="300" Grid.Column="2" Height="30" Grid.Row="1"/>
-        <Button Command="{Binding CreateEvent, Mode=TwoWay}" Content="CREATE EVENT" Margin="285,510,0,13" Foreground="White" Background="Black" FontFamily="Modern serif" Grid.Column="2" Height="30" Width="127" Grid.Row="1" />
+        <Button Command="{Binding CreateEvent, Mode=TwoWay}" Content="CREATE EVENT" Margin="280,510,0,13" Foreground="White" Background="Black" FontFamily="Modern serif" Grid.Column="2" Height="40" Width="120" Grid.Row="1" />
+        <Button Content="GO BACK" Margin="410,510,0,13" Foreground="White" Background="Black" FontFamily="Modern serif" Grid.Column="2" Height="40" Width="120" Grid.Row="1" Click="Button_Click" />
     </Grid>
 </Page>

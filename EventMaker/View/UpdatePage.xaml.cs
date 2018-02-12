@@ -34,5 +34,10 @@ namespace EventMaker.View
             name.Text = evm.SelectedEvent.Name;
             type.Text = evm.SelectedEvent.Type;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(EventPage));
+        }
     }
 }
