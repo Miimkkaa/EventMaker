@@ -45,7 +45,7 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        <ComboBox Grid.Row="1" Grid.Column="1" Margin="52,500,0,172" Width="160" Name="sortBox">
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="0,500,0,172" Width="120" Name="sortBox">
             <ComboBoxItem Content="Concert" />
             <ComboBoxItem Content="Art" />
             <ComboBoxItem Content="Food" />
@@ -54,12 +54,12 @@
             <ComboBoxItem Content="Photography"/>
             <ComboBoxItem Content="Dance"/>
         </ComboBox>
-        <Button Grid.Row="1" Grid.Column="1" Margin="300,500,0,172" Width="120" Content="RESET" FontSize="20" Foreground="AliceBlue" Background="Black" Height="40" FontFamily="Modern Serif" Click="Button_Click_2"/>
-            <Button Grid.Row="1" Grid.Column="1" Margin="442,500,0,172" Width="120" Height="40" Content="FILTER" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click_1" />
-        <Button Grid.Row="1" Grid.Column="1" Margin="580,500,0,172" Width="120" Height="40" Content="CREATE" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click"/>
-        <Button Grid.Row="1" Grid.Column="1" Margin="720,500,0,172" Width="120" Height="40" Content="DELETE" FontFamily="Modern Serif" Command="{Binding DeleteEvent}"  Background="Black" Foreground="#FFFAF4F4" FontSize="20"/>
-            <Button Grid.Row="1" Grid.Column="1" Margin="852,500,0,172" Width="120" Height="40" Content="UPDATE" FontFamily="Modern Serif" Command="{Binding NextPage}" FontSize="20" Background="Black" Foreground="#FFFAF4F4"/>
-
+        <Button Grid.Row="1" Grid.Column="1" Margin="260,500,0,172" Width="120" Content="RESET" FontSize="20" Foreground="#FFFAF4F4" Background="Black" Height="40" FontFamily="Modern Serif" Click="Button_Click_2"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="130,500,0,172" Width="120" Height="40" Content="FILTER" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click_1"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="390,500,0,172" Width="120" Height="40" Content="CREATE" FontFamily="Modern Serif" Background="Black" Foreground="#FFFAF4F4" FontSize="20" Click="Button_Click"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="520,500,0,172" Width="120" Height="40" Content="DELETE" FontFamily="Modern Serif" Command="{Binding DeleteEvent}"  Background="Black" Foreground="#FFFAF4F4" FontSize="20"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="650,500,0,172" Width="120" Height="40" Content="UPDATE" FontFamily="Modern Serif" Command="{Binding NextPage}" FontSize="20" Background="Black" Foreground="#FFFAF4F4"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="780,500,0,172" Width="120" Height="40" Content="LOG OUT" FontFamily="Modern Serif" FontSize="20" Background="Black" Foreground="#FFFAF4F4" BorderBrush="#FF010101"/>
         <TextBlock Grid.Column="1" Height="90" Margin="252,66,248,44" Text="EVENTIME" TextAlignment="Center" Width="500" FontFamily="Modern Serif" FontSize="72" FontWeight="Bold" Foreground="#FFFAF4F4"/>
     </Grid>
 </Page>
