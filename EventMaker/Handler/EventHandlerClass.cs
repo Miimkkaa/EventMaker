@@ -65,12 +65,20 @@ namespace EventMaker.Handler
 
         public async void DeleteEvent(Event fordeleting)
         {
-            if (fordeleting.Name != null)
+            try
             {
-                _catalog.Events.Remove(fordeleting);
-                await _getEvents.SavetoJson(_catalog.Events);
+                if (fordeleting.Name != null)
+                {
+                    _catalog.Events.Remove(fordeleting);
+                    await _getEvents.SavetoJson(_catalog.Events);
+                }
+                else
+                {
+                    MessageDialog msg = new MessageDialog("Object was not selected.", "Error");
+                    msg.ShowAsync();
+                }
             }
-            else
+            catch
             {
                 MessageDialog msg = new MessageDialog("Object was not selected.", "Error");
                 msg.ShowAsync();
