@@ -36,7 +36,8 @@ namespace EventMakerTest
             
             //act
             log.LogIn();
-            string msg = "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked."
+            string msg =
+                "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.";
 
             //assert
             Assert.AreEqual(msg , "In order to create event, you have to fill all the information. Otherwise make sure that the date is picked.");
