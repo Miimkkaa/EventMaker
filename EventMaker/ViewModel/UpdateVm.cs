@@ -158,7 +158,7 @@ namespace EventMaker.ViewModel
                     else
                     {
                         MessageDialog msg = new MessageDialog("In order to update event, you have to fill all the information. And make sure that the date is picked.", "Updating failed");
-                        msg.ShowAsync();
+                        await msg.ShowAsync();
                     }
                 }
             }
