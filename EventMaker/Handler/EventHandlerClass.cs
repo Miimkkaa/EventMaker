@@ -87,16 +87,25 @@ namespace EventMaker.Handler
         
         public void DoNextPage()
         {
-            if(Evm.SelectedEvent.Name != null)
+            try
             {
-                _catalog.SetEvent(Evm.SelectedEvent);
-                _frameNAvigation.ActivateFrameNavigation(typeof(UpdatePage), Evm.SelectedEvent);
+                if (Evm.SelectedEvent.Name != null)
+                {
+                    _catalog.SetEvent(Evm.SelectedEvent);
+                    _frameNAvigation.ActivateFrameNavigation(typeof(UpdatePage), Evm.SelectedEvent);
+                }
+                else
+                {
+                    MessageDialog msg = new MessageDialog("Object was not selected.", "Error");
+                    msg.ShowAsync();
+                }
             }
-            else
+            catch
             {
                 MessageDialog msg = new MessageDialog("Object was not selected.", "Error");
                 msg.ShowAsync();
             }
+            
         }
 
         //method for reseting
