@@ -197,7 +197,7 @@ namespace EventMaker.ViewModel
         {
             foreach (var item in _userSingleton.Events)
             {
-                if (Types.Contains(SelectedType))
+                if (item.Type == SelectedType)
                 {
                     _userSingleton.Events.Add(item);
                 }

@@ -135,7 +135,7 @@ namespace EventMaker.ViewModel
         }
 
         
-        //DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Date1, Time1);
+        
 
         public async void UpDateEvent()
         {
@@ -148,16 +148,17 @@ namespace EventMaker.ViewModel
                     item.Type = Type;
                     item.Description = Description;
                     item.Location = Location;
-                    item.DateTime = DateTime1;
+                    DateTime date = DataTimeConvertor.DateTimeOffsetAndTimeSetToDateTime(Date1, Time1);
+                    item.DateTime = date;
 
-                    if (Name != null && Type != null && Description != null && Location != null && Date1 <= DateTime.Now)
+                    if (Name != null && Type != null && Description != null && Location != null && Date1 > DateTime.Now)
                     {
                         await _getEvent.SavetoJson(_usersinglCatalogSingleton.Events);
                         _frameNAvigation.ActivateFrameNavigation(typeof(EventPage));
                     }
                     else
                     {
-                        MessageDialog msg = new MessageDialog("In order to update event, you have to fill all the information. And make sure that the date is picked.", "Updating failed");
+                        MessageDialog msg = new MessageDialog("In order to update event, you have to fill all the information. And make sure that the right Sdate is picked.", "Updating failed");
                         await msg.ShowAsync();
                     }
                 }

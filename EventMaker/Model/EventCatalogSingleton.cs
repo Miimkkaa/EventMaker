@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Pwm;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
+using EventMaker.Annotations;
 using EventMaker.Common;
 using EventMaker.Handler;
 using EventMaker.Persistancy;
@@ -15,14 +18,15 @@ using EventMaker.ViewModel;
 
 namespace EventMaker.Model
 {
-    public class EventCatalogSingleton
+    public class EventCatalogSingleton : INotifyPropertyChanged
     {
         //instance fields
         public readonly PersistancyService _getEvents;
         private static Event _event;
+        private ObservableCollection<Event> _events;
 
         //props
-        public ObservableCollection<Event> Events { get; set; }
+        public ObservableCollection<Event> Events { get => _events; set { _events = value; OnPropertyChanged(nameof(Events)); } }
         private static EventCatalogSingleton Instance { get; set; }
 
         public  EventCatalogSingleton()
@@ -78,12 +82,10 @@ namespace EventMaker.Model
             try
             {
                 Events = await _getEvents.LoadFromJson();
-                //Events = _getEvents.EventsCatalog;
             }
             catch
             {
                 await _getEvents.SavetoJson(Events);
-               //Events = _getEvents.EventsCatalog;
             }
         }
 
@@ -117,5 +119,12 @@ namespace EventMaker.Model
             return _event.Location;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

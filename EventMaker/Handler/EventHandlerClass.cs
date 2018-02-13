@@ -100,7 +100,7 @@ namespace EventMaker.Handler
         }
 
         //method for reseting
-        public async void ResetEvents()
+        public void ResetEvents()
         {
             _catalog.LoadEventAsync();
         }
